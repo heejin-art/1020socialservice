@@ -87,11 +87,12 @@ npm run dev
 # http://localhost:3000
 ```
 
-### 프로덕션 빌드 & 실행
+### 프로덕션 빌드 & 정적 미리보기
 ```bash
-npm run build
-npm start
+npm run build          # 정적 export → out/ 생성
+npx serve out          # out/ 정적 서빙 (예: http://localhost:3000)
 ```
+> 이 프로젝트는 `output: "export"`(정적 사이트)로 빌드됩니다 — GitHub Pages 등 정적 호스팅에 그대로 올라갑니다.
 > 서비스 워커(PWA 오프라인 캐시)는 **프로덕션 빌드에서만** 활성화됩니다.
 
 ### PWA 설치 (앱처럼 사용)
@@ -104,19 +105,20 @@ npm run icons   # public/icons/* (sharp로 SVG→PNG)
 
 ---
 
-## ☁️ Vercel 배포
+## 🌐 라이브 데모 (GitHub Pages)
 
-이 프로젝트는 **추가 설정 없이** Vercel에 바로 배포됩니다.
+**▶ https://heejin-art.github.io/1020socialservice/**
 
-1. GitHub 저장소를 Vercel에 Import
-2. Framework Preset: **Next.js** (자동 감지)
-3. **Deploy** — 끝.
+`main`에 푸시하면 GitHub Actions(`.github/workflows/deploy.yml`)가 정적 export를 빌드해
+자동으로 GitHub Pages에 배포합니다.
 
-또는 CLI:
-```bash
-npm i -g vercel
-vercel
-```
+**최초 1회 설정** — 저장소 **Settings → Pages → Build and deployment → Source 를 “GitHub Actions”** 로 지정하세요.
+(서브경로 배포를 위해 워크플로우가 `NEXT_PUBLIC_BASE_PATH=/<repo>` 를 자동 주입합니다.)
+
+## ☁️ Vercel 배포 (대안)
+
+1. GitHub 저장소를 Vercel에 Import → Framework: **Next.js** 자동 감지 → **Deploy**.
+2. Vercel은 서브경로가 없으므로 환경변수 `NEXT_PUBLIC_BASE_PATH` 는 비워두면 됩니다(루트 배포).
 
 ---
 

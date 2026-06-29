@@ -7,6 +7,7 @@ import BottomNav from "@/components/BottomNav";
 
 const SITE = "머니코스 · Money Course";
 const DESC = "AI가 예산 안에서 가장 만족스러운 하루를 설계하는 소셜 플랫폼. 오늘 쓸 예산만 입력하면 끝.";
+const PREFIX = process.env.NEXT_PUBLIC_BASE_PATH || "";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://moneycourse.vercel.app"),
@@ -16,7 +17,7 @@ export const metadata: Metadata = {
   },
   description: DESC,
   applicationName: "머니코스",
-  manifest: "/manifest.webmanifest",
+  manifest: `${PREFIX}/manifest.webmanifest`,
   appleWebApp: {
     capable: true,
     statusBarStyle: "default",
@@ -24,10 +25,10 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
-      { url: "/icons/icon.svg", type: "image/svg+xml" },
-      { url: "/icons/icon-192.png", sizes: "192x192", type: "image/png" },
+      { url: `${PREFIX}/icons/icon.svg`, type: "image/svg+xml" },
+      { url: `${PREFIX}/icons/icon-192.png`, sizes: "192x192", type: "image/png" },
     ],
-    apple: "/icons/apple-touch-icon.png",
+    apple: `${PREFIX}/icons/apple-touch-icon.png`,
   },
   openGraph: {
     title: SITE,

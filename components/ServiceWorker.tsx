@@ -7,8 +7,11 @@ export default function ServiceWorker() {
     if (typeof window === "undefined") return;
     if (!("serviceWorker" in navigator)) return;
     if (process.env.NODE_ENV !== "production") return;
+    const prefix = process.env.NEXT_PUBLIC_BASE_PATH || "";
     const onLoad = () => {
-      navigator.serviceWorker.register("/sw.js").catch(() => {});
+      navigator.serviceWorker
+        .register(`${prefix}/sw.js`, { scope: `${prefix}/` })
+        .catch(() => {});
     };
     window.addEventListener("load", onLoad);
     return () => window.removeEventListener("load", onLoad);

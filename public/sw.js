@@ -1,6 +1,8 @@
-// 머니코스 Service Worker — app-shell precache + runtime caching
-const VERSION = "moneycourse-v1";
-const APP_SHELL = ["/", "/plan", "/explore", "/saved", "/offline", "/manifest.webmanifest"];
+// 머니코스 Service Worker — basePath(서브경로) 환경에서도 동작하도록 scope 기준 상대 처리
+const VERSION = "moneycourse-v2";
+// 등록 scope 기준 베이스 경로 (예: "/1020socialservice/" 또는 "/")
+const BASE = new URL(self.registration.scope).pathname;
+const APP_SHELL = [BASE, BASE + "offline/", BASE + "manifest.webmanifest"];
 
 self.addEventListener("install", (event) => {
   event.waitUntil(
@@ -26,7 +28,7 @@ self.addEventListener("fetch", (event) => {
 
   const url = new URL(request.url);
 
-  // Network-first for navigations (always fresh HTML, fall back to cache/offline)
+  // 페이지 이동: 네트워크 우선, 실패 시 캐시 → 오프라인 폴백
   if (request.mode === "navigate") {
     event.respondWith(
       fetch(request)
@@ -35,12 +37,14 @@ self.addEventListener("fetch", (event) => {
           caches.open(VERSION).then((c) => c.put(request, copy));
           return res;
         })
-        .catch(() => caches.match(request).then((r) => r || caches.match("/offline")))
+        .catch(() =>
+          caches.match(request).then((r) => r || caches.match(BASE + "offline/") || caches.match(BASE))
+        )
     );
     return;
   }
 
-  // Stale-while-revalidate for static assets
+  // 정적 자산: stale-while-revalidate
   if (url.origin === self.location.origin || url.hostname.includes("jsdelivr")) {
     event.respondWith(
       caches.match(request).then((cached) => {
