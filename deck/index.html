@@ -1,0 +1,1860 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>머니코스 · Money Course — Product Concept Deck</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" />
+<style>
+  :root{
+    --ink:#0A0B0D;
+    --sub:#6B7280;
+    --hair:#E8EAED;
+    --canvas:#FFFFFF;
+    --muted:#F5F6F8;
+    --blue:#2F6BFF;
+    --deep:#1E4FD9;
+    --mint:#10B981;
+    --blue-tint:#EAF0FF;
+    --mint-tint:#E7F7F1;
+    --r:18px;
+    --shadow:0 1px 2px rgba(10,11,13,.04), 0 8px 24px rgba(10,11,13,.06);
+    --shadow-sm:0 1px 2px rgba(10,11,13,.05);
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html,body{
+    background:#2A2C30;
+    font-family:'Pretendard','Pretendard Variable',-apple-system,BlinkMacSystemFont,sans-serif;
+    color:var(--ink);
+    -webkit-font-smoothing:antialiased;
+    text-rendering:optimizeLegibility;
+  }
+  .stage{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:32px;
+    padding:40px 0 60px;
+  }
+  .slide{
+    width:1280px;
+    height:720px;
+    background:var(--canvas);
+    position:relative;
+    overflow:hidden;
+    -webkit-print-color-adjust:exact;
+    print-color-adjust:exact;
+    page-break-after:always;
+    break-after:page;
+    box-shadow:0 20px 60px rgba(0,0,0,.35);
+  }
+  .slide:last-child{page-break-after:auto; break-after:auto;}
+
+  /* ---------- shared layout ---------- */
+  .pad{position:absolute; inset:0; padding:64px;}
+  .eyebrow{
+    font-size:12px; font-weight:700; letter-spacing:.18em;
+    text-transform:uppercase; color:var(--blue);
+  }
+  .eyebrow.gray{color:var(--sub);}
+  .footer{
+    position:absolute; left:64px; right:64px; bottom:30px;
+    display:flex; justify-content:space-between; align-items:center;
+    font-size:11px; color:var(--sub); letter-spacing:.02em;
+    border-top:1px solid var(--hair); padding-top:14px;
+  }
+  .footer .brand{display:flex; align-items:center; gap:8px; font-weight:600; color:#9AA1AC;}
+  .footer .brand b{color:var(--ink); font-weight:700;}
+  .pageno{font-variant-numeric:tabular-nums; font-weight:600; color:#9AA1AC;}
+
+  .h1{font-size:46px; font-weight:800; letter-spacing:-.025em; line-height:1.1;}
+  .h2{font-size:34px; font-weight:800; letter-spacing:-.02em; line-height:1.15;}
+  .lead{font-size:17px; color:var(--sub); line-height:1.6; font-weight:500;}
+  .title-block{margin-top:22px;}
+  .title-block .h2{margin-top:14px;}
+  .title-block .lead{margin-top:14px; max-width:760px;}
+
+  .card{
+    background:var(--canvas);
+    border:1px solid var(--hair);
+    border-radius:var(--r);
+    box-shadow:var(--shadow-sm);
+  }
+  .card.muted{background:var(--muted); border-color:transparent;}
+  .chip{
+    display:inline-flex; align-items:center; gap:6px;
+    font-size:12px; font-weight:700; padding:5px 11px; border-radius:999px;
+    background:var(--muted); color:var(--sub);
+  }
+  .chip.blue{background:var(--blue-tint); color:var(--deep);}
+  .chip.mint{background:var(--mint-tint); color:#0E8C66;}
+  .num{font-variant-numeric:tabular-nums;}
+  .mint-text{color:var(--mint);}
+  .blue-text{color:var(--blue);}
+  .ev{font-size:12px; font-weight:700; color:#374151; margin-top:12px; line-height:1.45; padding-top:12px; border-top:1px solid var(--hair);}
+  .src{font-size:11px; font-weight:600; color:#9AA1AC; margin-top:6px;}
+
+  /* cover */
+  .cover{
+    background:
+      radial-gradient(1200px 520px at 78% -10%, rgba(47,107,255,.16), transparent 60%),
+      radial-gradient(900px 480px at 105% 120%, rgba(16,185,129,.12), transparent 55%),
+      linear-gradient(180deg,#FFFFFF 0%, #FBFCFE 100%);
+  }
+
+  /* generic grids */
+  .grid{display:grid; gap:18px;}
+
+  /* svg helpers */
+  svg{display:block;}
+  .arrow-label{font-size:11px; fill:var(--sub);}
+
+  @media print{
+    html,body{background:#fff;}
+    .stage{gap:0; padding:0;}
+    .slide{box-shadow:none;}
+  }
+  @page{ size:1280px 720px; margin:0; }
+</style>
+</head>
+<body>
+<div class="stage">
+
+<!-- ============ SLIDE 1 — COVER ============ -->
+<section class="slide cover">
+  <div class="pad">
+    <div style="display:flex; align-items:center; gap:12px;">
+      <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+        <rect x="1" y="1" width="38" height="38" rx="11" fill="url(#cg)" />
+        <path d="M12 27V14.5L20 22l8-7.5V27" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+        <circle cx="20" cy="20" r="2.6" fill="#fff"/>
+        <defs><linearGradient id="cg" x1="0" y1="0" x2="40" y2="40">
+          <stop stop-color="#2F6BFF"/><stop offset="1" stop-color="#1E4FD9"/>
+        </linearGradient></defs>
+      </svg>
+      <span style="font-size:16px; font-weight:800; letter-spacing:-.01em;">머니코스</span>
+      <span style="font-size:13px; font-weight:600; color:var(--sub);">Money Course</span>
+    </div>
+
+    <div style="position:absolute; left:64px; top:255px; right:64px;">
+      <div class="eyebrow">AI CONSUMPTION COACH × EXPERIENCE SOCIAL</div>
+      <h1 style="font-size:72px; font-weight:800; letter-spacing:-.03em; line-height:1.04; margin-top:18px;">
+        머니코스<span style="color:var(--sub); font-weight:700; font-size:34px; margin-left:14px;">Money&nbsp;Course</span>
+      </h1>
+      <p style="font-size:21px; font-weight:700; color:#374151; line-height:1.45; margin-top:20px; max-width:760px;">
+        AI가 남은 생활비와 취향을 분석해, 예산 안에서<br/>가장 만족도 높은 <span class="blue-text">경험을 추천</span>하고
+        사람들이 그<br/>경험을 함께 <span class="blue-text">공유하는 소셜 플랫폼</span>
+      </p>
+      <div style="display:flex; gap:8px; margin-top:18px;">
+        <span class="chip blue">AI 소비 코치</span>
+        <span class="chip mint">경험 소셜</span>
+      </div>
+    </div>
+
+    <div style="position:absolute; right:64px; top:120px;">
+      <svg width="360" height="360" viewBox="0 0 360 360" fill="none">
+        <circle cx="180" cy="180" r="150" stroke="var(--hair)" stroke-width="1.4"/>
+        <circle cx="180" cy="180" r="104" stroke="var(--hair)" stroke-width="1.4"/>
+        <circle cx="180" cy="180" r="150" stroke="var(--blue)" stroke-width="6" stroke-linecap="round"
+          stroke-dasharray="660 942" transform="rotate(-90 180 180)"/>
+        <circle cx="180" cy="180" r="104" stroke="var(--mint)" stroke-width="6" stroke-linecap="round"
+          stroke-dasharray="360 654" transform="rotate(-90 180 180)"/>
+        <text x="180" y="172" text-anchor="middle" font-size="15" font-weight="700" fill="var(--sub)">오늘의 예산</text>
+        <text x="180" y="210" text-anchor="middle" font-size="44" font-weight="800" fill="var(--ink)">₩30,000</text>
+        <text x="180" y="236" text-anchor="middle" font-size="13" font-weight="700" fill="var(--mint)">만족도 96점 · 5코스</text>
+      </svg>
+    </div>
+
+    <div class="footer">
+      <span class="brand"><b>머니코스</b> · Money Course</span>
+      <span class="pageno">Product Concept · 2026</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SLIDE 2 — INDEX ============ -->
+<section class="slide">
+  <div class="pad">
+    <div class="eyebrow gray">CONTENTS</div>
+    <h2 class="h1" style="margin-top:10px;">목차</h2>
+    <p style="font-size:14px; color:var(--sub); font-weight:600; margin-top:8px;">문제에서 사업성까지 — 네 단계로 읽는 흐름</p>
+
+    <div class="grid" style="grid-template-columns:1fr 1fr; gap:0 72px; margin-top:24px;">
+      <div>
+        <div class="idxgroup"><span class="gn">1</span>문제 · Problem</div>
+        <div class="idx2"><span>01</span><b>문제 정의</b><i>예산 안의 만족스러운 선택</i></div>
+        <div class="idx2"><span>02</span><b>시장과 타이밍</b><i>Why now</i></div>
+        <div class="idxgroup" style="margin-top:8px;"><span class="gn">2</span>솔루션 · 차별화 · Solution &amp; Edge</div>
+        <div class="idx2"><span>03</span><b>솔루션 개요</b><i>예산 입력 → AI 경험 추천</i></div>
+        <div class="idx2"><span>04</span><b>작동 방식</b><i>3 Steps</i></div>
+        <div class="idx2 nf"><span>05</span><b>AI 생활비 코치</b><i>Budget Coach</i></div>
+        <div class="idx2 nf"><span>06</span><b>AI 개인화 학습</b><i>Personalization</i></div>
+        <div class="idx2 nf"><span>07</span><b>오늘의 AI 브리핑</b><i>Proactive Briefing</i></div>
+        <div class="idx2 nf"><span>08</span><b>소셜 실데이터 랭킹</b><i>Social Proof</i></div>
+        <div class="idx2 nf"><span>09</span><b>게이미피케이션</b><i>Gamification</i></div>
+      </div>
+      <div>
+        <div class="idxgroup" style="visibility:hidden;"><span class="gn">2</span>솔루션 (계속)</div>
+        <div class="idx2"><span>10</span><b>핵심: 소셜</b><i>공유 &amp; 학습 플라이휠</i></div>
+        <div class="idx2"><span>11</span><b>제품 화면</b><i>UI Mockups</i></div>
+        <div class="idx2"><span>12</span><b>사용 이유</b><i>4 Value Props</i></div>
+        <div class="idxgroup" style="margin-top:8px;"><span class="gn">3</span>설계 · Design</div>
+        <div class="idx2"><span>13</span><b>정보 구조 (IA)</b><i>Navigation</i></div>
+        <div class="idx2"><span>14</span><b>사용자 플로우</b><i>User Flow</i></div>
+        <div class="idx2"><span>15</span><b>서비스 구조도</b><i>Architecture</i></div>
+        <div class="idx2"><span>16</span><b>데이터 모델 (ERD)</b><i>Schema</i></div>
+        <div class="idxgroup" style="margin-top:8px;"><span class="gn">4</span>사업성 · Business</div>
+        <div class="idx2"><span>17</span><b>핵심 지표 (KPI)</b><i>North Star</i></div>
+        <div class="idx2"><span>18</span><b>비즈니스 모델</b><i>Revenue & MVP</i></div>
+        <div class="idx2"><span>19</span><b>로드맵 & 클로징</b><i>Roadmap</i></div>
+        <div class="idx2"><span>20</span><b>Appendix</b><i>가정 & 검증 계획</i></div>
+      </div>
+    </div>
+
+    <div class="footer">
+      <span class="brand"><b>머니코스</b> · Money Course</span>
+      <span class="pageno">02</span>
+    </div>
+  </div>
+  <style>
+    .idxgroup{display:flex; align-items:center; gap:9px; font-size:11px; font-weight:800; letter-spacing:.1em; text-transform:uppercase; color:var(--blue); padding:5px 0 4px;}
+    .idxgroup .gn{width:20px; height:20px; border-radius:6px; background:var(--blue); color:#fff; display:flex; align-items:center; justify-content:center; font-size:11px; font-weight:800;}
+    .idx2{display:flex; align-items:baseline; gap:12px; padding:6.5px 0 6.5px 29px; border-bottom:1px solid var(--hair);}
+    .idx2 span{font-size:11px; font-weight:800; color:var(--sub); width:22px; font-variant-numeric:tabular-nums;}
+    .idx2 b{font-size:14px; font-weight:700; min-width:150px;}
+    .idx2 i{font-size:11.5px; color:var(--sub); font-style:normal; font-weight:500;}
+    .idx2.nf b::after{content:'NEW'; font-size:8.5px; font-weight:800; color:#fff; background:var(--mint); padding:1px 5px; border-radius:5px; margin-left:7px; vertical-align:middle; letter-spacing:.05em;}
+  </style>
+</section>
+
+<!-- ============ SLIDE 3 — PROBLEM ============ -->
+<section class="slide">
+  <div class="pad">
+    <div class="eyebrow gray">PROBLEM</div>
+    <div class="title-block" style="margin-top:16px;">
+      <div class="h2">돈이 없는 게 아니다.<br/><span class="blue-text">예산 안에서 만족스러운 선택</span>을 찾기 어렵다.</div>
+      <p class="lead" style="margin-top:12px;">여러 앱을 오가는 <b style="color:var(--ink);">정보 파편화</b> → 검색·선택·비교의 <b style="color:var(--ink);">의사결정 비용</b>이 발생한다.</p>
+    </div>
+
+    <div style="display:grid; grid-template-columns:1.15fr 1fr; gap:36px; margin-top:38px;">
+      <!-- fragmented research infographic -->
+      <div>
+        <div class="eyebrow gray" style="font-size:11px;">FRAGMENTED RESEARCH</div>
+        <svg width="600" height="320" viewBox="0 0 600 320" style="margin-top:14px;">
+          <!-- sources -->
+          <g font-size="13" font-weight="700">
+            <g><rect x="0" y="10" width="118" height="40" rx="10" fill="var(--muted)"/><text x="59" y="35" text-anchor="middle">네이버</text></g>
+            <g><rect x="0" y="66" width="118" height="40" rx="10" fill="var(--muted)"/><text x="59" y="91" text-anchor="middle">인스타그램</text></g>
+            <g><rect x="0" y="122" width="118" height="40" rx="10" fill="var(--muted)"/><text x="59" y="147" text-anchor="middle">블로그</text></g>
+            <g><rect x="0" y="178" width="118" height="40" rx="10" fill="var(--muted)"/><text x="59" y="203" text-anchor="middle">유튜브</text></g>
+            <g><rect x="0" y="234" width="118" height="40" rx="10" fill="var(--muted)"/><text x="59" y="259" text-anchor="middle">카카오맵</text></g>
+          </g>
+          <!-- connectors to user -->
+          <g stroke="var(--hair)" stroke-width="1.6" fill="none">
+            <path d="M118 30 C 200 30, 230 130, 300 142"/>
+            <path d="M118 86 C 200 86, 235 135, 300 146"/>
+            <path d="M118 142 C 220 142, 250 145, 300 150"/>
+            <path d="M118 198 C 200 198, 235 160, 300 154"/>
+            <path d="M118 254 C 200 254, 230 170, 300 158"/>
+          </g>
+          <!-- user node -->
+          <circle cx="340" cy="150" r="44" fill="var(--blue-tint)"/>
+          <text x="340" y="146" text-anchor="middle" font-size="13" font-weight="700" fill="var(--deep)">10~20대</text>
+          <text x="340" y="164" text-anchor="middle" font-size="12" font-weight="600" fill="var(--deep)">사용자</text>
+          <!-- fatigue outputs -->
+          <g>
+            <path d="M384 150 H 440" stroke="#C7CBD3" stroke-width="1.6"/>
+            <g font-size="13" font-weight="700">
+              <rect x="446" y="58" width="148" height="44" rx="11" fill="#FFF" stroke="var(--hair)"/><text x="520" y="85" text-anchor="middle">검색 피로</text>
+              <rect x="446" y="128" width="148" height="44" rx="11" fill="#FFF" stroke="var(--hair)"/><text x="520" y="155" text-anchor="middle">선택 피로</text>
+              <rect x="446" y="198" width="148" height="44" rx="11" fill="#FFF" stroke="var(--hair)"/><text x="520" y="225" text-anchor="middle">비교 피로</text>
+            </g>
+            <g stroke="#C7CBD3" stroke-width="1.4" fill="none">
+              <path d="M440 150 C 446 150, 442 84, 446 80"/>
+              <path d="M440 150 H 446"/>
+              <path d="M440 150 C 446 150, 442 216, 446 220"/>
+            </g>
+          </g>
+        </svg>
+        <div style="margin-top:8px; font-size:12.5px; color:var(--sub); font-weight:600; line-height:1.5;">
+          한 번의 외출을 위해 평균 4~5개 채널 탐색 → 정보가 흩어져 비교가 어렵다.
+          <span style="color:#9AA1AC;">근거: 사용자 행동 관찰·인터뷰 기반 가설</span>
+        </div>
+      </div>
+
+      <!-- key insight -->
+      <div class="card" style="padding:30px; align-self:center;">
+        <div class="chip blue">KEY INSIGHT · 시작점 불일치</div>
+        <div style="margin-top:22px; display:flex; flex-direction:column; gap:18px;">
+          <div style="display:flex; gap:14px; align-items:flex-start;">
+            <div class="mark gray">기존</div>
+            <div>
+              <div style="font-size:18px; font-weight:700;">'장소'에서 시작한다</div>
+              <div class="lead" style="font-size:14px; margin-top:4px;">"어디 갈까?" → 가격은 나중에 확인</div>
+            </div>
+          </div>
+          <div style="height:1px; background:var(--hair);"></div>
+          <div style="display:flex; gap:14px; align-items:flex-start;">
+            <div class="mark blue">사용</div>
+            <div>
+              <div style="font-size:18px; font-weight:700;">'오늘 얼마 쓰지?'에서 시작한다</div>
+              <div class="lead" style="font-size:14px; margin-top:4px;">예산이 모든 선택의 출발점</div>
+            </div>
+          </div>
+        </div>
+        <div style="margin-top:24px; font-size:15px; font-weight:700; color:var(--ink); line-height:1.5;">
+          멘탈모델과 서비스의 <span class="blue-text">시작점이 어긋나</span> 있다.<br/>
+          <span style="font-size:13px; color:var(--sub); font-weight:600;">→ 해법은 '장소 검색'이 아니라 '예산을 관리하는 AI 소비 코치'.</span>
+        </div>
+      </div>
+    </div>
+
+    <div style="position:absolute; left:64px; bottom:62px; font-size:11px; color:#9AA1AC; font-weight:600;">* 정량 수치는 가설·리서치 기반이며 MVP에서 검증 예정.</div>
+    <div class="footer">
+      <span class="brand"><b>머니코스</b> · Money Course</span>
+      <span class="pageno">03</span>
+    </div>
+  </div>
+  <style>
+    .mark{flex:none; width:42px; height:42px; border-radius:11px; display:flex; align-items:center; justify-content:center; font-size:12px; font-weight:800;}
+    .mark.gray{background:var(--muted); color:var(--sub);}
+    .mark.blue{background:var(--blue); color:#fff;}
+  </style>
+</section>
+
+<!-- ============ SLIDE 4 — WHY IT MATTERS ============ -->
+<section class="slide">
+  <div class="pad">
+    <div class="eyebrow gray">WHY NOW</div>
+    <div class="title-block">
+      <div class="h2">불황기 합리적 소비와 Z세대의 욕구가<br/>같은 방향을 가리킨다.</div>
+      <p class="lead">경험은 포기하지 않으면서 예산은 지키려는 세대. '선택에 쓰는 시간'이 가장 비싼 자원이 된 지금, 필요한 건 놀거리 추천이 아니라 <b style="color:var(--ink);">예산까지 관리하는 AI 소비 코치 + 경험 소셜</b>이다.</p>
+    </div>
+
+    <div class="grid" style="grid-template-columns:repeat(3,1fr); margin-top:42px;">
+      <div class="card" style="padding:28px;">
+        <div class="chip mint">CONSUMPTION TREND</div>
+        <div style="font-size:52px; font-weight:800; letter-spacing:-.02em; margin-top:20px;" class="num">72<span style="font-size:24px; color:var(--sub);">%</span></div>
+        <div style="font-size:15px; font-weight:700; margin-top:6px;">"가성비를 가장 먼저 따진다"</div>
+        <div class="lead" style="font-size:13px; margin-top:8px;">무지출·짠테크·가성비가 20대 일상 키워드.</div>
+        <div class="ev">현상 → 시사점 · 절약이 '결핍'이 아닌 '취향' → 가성비 큐레이션 수요</div>
+        <div class="src">출처: 통계청 가계동향·트렌드 리서치 기반 추정</div>
+      </div>
+      <div class="card" style="padding:28px;">
+        <div class="chip blue">DUAL NEED</div>
+        <div style="font-size:52px; font-weight:800; letter-spacing:-.02em; margin-top:20px;" class="num">2<span style="font-size:24px; color:var(--sub);">-in-1</span></div>
+        <div style="font-size:15px; font-weight:700; margin-top:6px;">경험소비 + 예산관리</div>
+        <div class="lead" style="font-size:13px; margin-top:8px;">"잘 놀고 싶다"와 "아껴야 한다"를 함께 푸는 도구 부재.</div>
+        <div class="ev">현상 → 시사점 · 두 니즈를 결합한 서비스가 없다 → 시장 공백</div>
+        <div class="src">가설 — MVP에서 검증 예정</div>
+      </div>
+      <div class="card" style="padding:28px;">
+        <div class="chip">TIME POVERTY</div>
+        <div style="font-size:52px; font-weight:800; letter-spacing:-.02em; margin-top:20px;" class="num">40<span style="font-size:24px; color:var(--sub);">분+</span></div>
+        <div style="font-size:15px; font-weight:700; margin-top:6px;">하루 코스 짜는 평균 시간</div>
+        <div class="lead" style="font-size:13px; margin-top:8px;">앱 4~5개를 오가며 검색·비교 → 시간 빈곤.</div>
+        <div class="ev">현상 → 시사점 · 시간이 가장 비싼 자원 → 10초 설계의 가치</div>
+        <div class="src">내부 로직 기반 추정</div>
+      </div>
+    </div>
+
+    <div style="margin-top:26px; display:flex; align-items:center; gap:12px; font-size:14px; color:var(--sub); background:var(--muted); padding:16px 22px; border-radius:14px;">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="var(--blue)" stroke-width="2"/><path d="M12 8v5" stroke="var(--blue)" stroke-width="2" stroke-linecap="round"/><circle cx="12" cy="16.5" r="1.2" fill="var(--blue)"/></svg>
+      수치는 시장·행동 트렌드를 설명하기 위한 <b style="color:var(--ink); margin:0 4px;">예시 지표(가설/리서치 기반)</b>이며, 정식 검증 전 단계입니다.
+    </div>
+
+    <div class="footer">
+      <span class="brand"><b>머니코스</b> · Money Course</span>
+      <span class="pageno">04</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SLIDE 5 — SOLUTION OVERVIEW ============ -->
+<section class="slide">
+  <div class="pad">
+    <div class="eyebrow">SOLUTION</div>
+    <div class="title-block" style="margin-top:18px;">
+      <div class="h2">예산만 입력하면, <span class="blue-text">AI가 경험을 설계한다.</span></div>
+      <p class="lead" style="margin-top:12px; max-width:880px; font-weight:600; color:#374151;">
+        AI가 남은 생활비와 취향을 분석해, 예산 안에서 가장 만족도 높은 경험을 추천하고
+        사람들이 그 경험을 함께 공유하는 <span class="blue-text">소셜 플랫폼</span> — 단순 추천을 넘어 <b>AI 소비 코치 + 경험 소셜</b>.
+      </p>
+    </div>
+
+    <!-- pipeline -->
+    <div style="margin-top:30px;">
+      <svg width="1152" height="340" viewBox="0 0 1152 340">
+        <!-- INPUT -->
+        <g>
+          <rect x="0" y="40" width="270" height="260" rx="18" fill="var(--muted)"/>
+          <text x="24" y="74" font-size="12" font-weight="800" letter-spacing="1.5" fill="var(--sub)">INPUT · 입력</text>
+          <text x="24" y="106" font-size="18" font-weight="800" fill="var(--ink)">사용자 조건</text>
+          <g font-size="13" font-weight="600" fill="#374151">
+            <text x="24" y="146">· 예산 (₩)</text>
+            <text x="24" y="178">· 동행 (혼자/연인/친구)</text>
+            <text x="24" y="210">· 위치</text>
+            <text x="24" y="242">· 취향</text>
+            <text x="24" y="274">· 실내 / 야외</text>
+          </g>
+        </g>
+        <!-- arrow -->
+        <path d="M280 170 H 322" stroke="var(--blue)" stroke-width="2.4"/>
+        <path d="M318 162 l10 8 l-10 8" fill="none" stroke="var(--blue)" stroke-width="2.4"/>
+
+        <!-- AI engine -->
+        <g>
+          <rect x="338" y="20" width="470" height="300" rx="18" fill="#0A0B0D"/>
+          <rect x="338" y="20" width="470" height="300" rx="18" fill="url(#aig)"/>
+          <text x="364" y="56" font-size="12" font-weight="800" letter-spacing="1.5" fill="#9DB4FF">AI ENGINE · 추천·랭킹</text>
+          <text x="364" y="86" font-size="19" font-weight="800" fill="#fff">실시간 맥락을 종합한다</text>
+          <g font-size="12.5" font-weight="700">
+            <!-- tags -->
+            <g fill="#fff">
+            <rect x="364" y="108" width="92" height="32" rx="9" fill="rgba(255,255,255,.12)"/><text x="410" y="129" text-anchor="middle">예산</text>
+            <rect x="464" y="108" width="92" height="32" rx="9" fill="rgba(255,255,255,.12)"/><text x="510" y="129" text-anchor="middle">날씨</text>
+            <rect x="564" y="108" width="92" height="32" rx="9" fill="rgba(255,255,255,.12)"/><text x="610" y="129" text-anchor="middle">시간</text>
+            <rect x="664" y="108" width="120" height="32" rx="9" fill="rgba(255,255,255,.12)"/><text x="724" y="129" text-anchor="middle">위치</text>
+            <rect x="364" y="148" width="92" height="32" rx="9" fill="rgba(255,255,255,.12)"/><text x="410" y="169" text-anchor="middle">혼잡도</text>
+            <rect x="464" y="148" width="120" height="32" rx="9" fill="rgba(47,107,255,.4)"/><text x="524" y="169" text-anchor="middle">실시간 할인</text>
+            <rect x="592" y="148" width="92" height="32" rx="9" fill="rgba(255,255,255,.12)"/><text x="638" y="169" text-anchor="middle">팝업</text>
+            <rect x="692" y="148" width="92" height="32" rx="9" fill="rgba(255,255,255,.12)"/><text x="738" y="169" text-anchor="middle">무료전시</text>
+            <rect x="364" y="188" width="92" height="32" rx="9" fill="rgba(255,255,255,.12)"/><text x="410" y="209" text-anchor="middle">행사</text>
+            <rect x="464" y="188" width="120" height="32" rx="9" fill="rgba(255,255,255,.12)"/><text x="524" y="209" text-anchor="middle">이용기록</text>
+            <rect x="592" y="188" width="120" height="32" rx="9" fill="rgba(16,185,129,.42)"/><text x="652" y="209" text-anchor="middle">취향 학습</text>
+            </g>
+          </g>
+          <text x="364" y="262" font-size="13" font-weight="600" fill="rgba(255,255,255,.65)">→ 만족도 점수로 코스를 랭킹·최적화</text>
+          <text x="364" y="288" font-size="13" font-weight="600" fill="rgba(255,255,255,.65)">→ 예산 초과 없이 시간순으로 배치</text>
+          <defs><linearGradient id="aig" x1="338" y1="20" x2="808" y2="320">
+            <stop stop-color="#15172A"/><stop offset="1" stop-color="#0A0B0D"/>
+          </linearGradient></defs>
+        </g>
+        <!-- arrow -->
+        <path d="M818 170 H 860" stroke="var(--mint)" stroke-width="2.4"/>
+        <path d="M856 162 l10 8 l-10 8" fill="none" stroke="var(--mint)" stroke-width="2.4"/>
+
+        <!-- OUTPUT -->
+        <g>
+          <rect x="876" y="40" width="276" height="260" rx="18" fill="var(--mint-tint)"/>
+          <text x="900" y="74" font-size="12" font-weight="800" letter-spacing="1.5" fill="#0E8C66">OUTPUT · 결과</text>
+          <text x="900" y="106" font-size="18" font-weight="800" fill="var(--ink)">만족도 최적 하루</text>
+          <g font-size="13" font-weight="700" fill="#0E8C66">
+            <rect x="900" y="128" width="228" height="44" rx="11" fill="#fff"/>
+            <text x="918" y="155">11:00 · 카페 — ₩5,500</text>
+            <rect x="900" y="180" width="228" height="44" rx="11" fill="#fff"/>
+            <text x="918" y="207">14:00 · 무료 전시 — ₩0</text>
+            <rect x="900" y="232" width="228" height="44" rx="11" fill="#fff"/>
+            <text x="918" y="259">18:00 · 맛집 — ₩18,000</text>
+          </g>
+        </g>
+      </svg>
+    </div>
+
+    <div class="footer">
+      <span class="brand"><b>머니코스</b> · Money Course</span>
+      <span class="pageno">05</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SLIDE 6 — HOW IT WORKS ============ -->
+<section class="slide">
+  <div class="pad">
+    <div class="eyebrow gray">HOW IT WORKS</div>
+    <div class="title-block">
+      <div class="h2">입력은 10초, 결과는 완성된 하루.</div>
+    </div>
+
+    <div class="grid" style="grid-template-columns:repeat(3,1fr); margin-top:54px;">
+      <!-- step 1 -->
+      <div class="card" style="padding:32px; position:relative;">
+        <div style="font-size:13px; font-weight:800; color:var(--blue);">STEP 01</div>
+        <div style="width:58px; height:58px; border-radius:16px; background:var(--blue-tint); display:flex; align-items:center; justify-content:center; margin-top:18px;">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="4" width="18" height="16" rx="3"/><path d="M3 9h18"/><path d="M7 14h5"/></svg>
+        </div>
+        <div style="font-size:21px; font-weight:800; margin-top:22px;">예산·조건 입력</div>
+        <div class="lead" style="font-size:14px; margin-top:10px;">예산, 동행, 위치, 취향, 실내/야외를 한 화면에서. 슬라이더와 칩으로 10초 안에 끝난다.</div>
+        <div class="chip blue" style="margin-top:18px;">10초</div>
+      </div>
+      <!-- step 2 -->
+      <div class="card" style="padding:32px;">
+        <div style="font-size:13px; font-weight:800; color:var(--blue);">STEP 02</div>
+        <div style="width:58px; height:58px; border-radius:16px; background:var(--blue-tint); display:flex; align-items:center; justify-content:center; margin-top:18px;">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 3v2M12 19v2M5 12H3M21 12h-2M6 6l1.5 1.5M16.5 16.5L18 18"/><circle cx="12" cy="12" r="4"/></svg>
+        </div>
+        <div style="font-size:21px; font-weight:800; margin-top:22px;">AI 코스 설계</div>
+        <div class="lead" style="font-size:14px; margin-top:10px;">날씨·시간·혼잡도·실시간 할인을 종합해 예산 안에서 만족도가 가장 높은 동선을 생성한다.</div>
+        <div class="chip mint" style="margin-top:18px;">만족도 최적화</div>
+      </div>
+      <!-- step 3 -->
+      <div class="card" style="padding:32px;">
+        <div style="font-size:13px; font-weight:800; color:var(--blue);">STEP 03</div>
+        <div style="width:58px; height:58px; border-radius:16px; background:var(--blue-tint); display:flex; align-items:center; justify-content:center; margin-top:18px;">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 12v7a1 1 0 001 1h14a1 1 0 001-1v-7"/><path d="M16 6l-4-4-4 4"/><path d="M12 2v13"/></svg>
+        </div>
+        <div style="font-size:21px; font-weight:800; margin-top:22px;">저장·공유·따라가기</div>
+        <div class="lead" style="font-size:14px; margin-top:10px;">완성된 코스를 저장하고 피드에 공유. 다른 사람의 코스를 그대로 따라갈 수 있다.</div>
+        <div class="chip" style="margin-top:18px;">소셜 연결</div>
+      </div>
+    </div>
+
+    <!-- connector -->
+    <svg width="1152" height="40" viewBox="0 0 1152 40" style="margin-top:26px;">
+      <line x1="180" y1="20" x2="976" y2="20" stroke="var(--hair)" stroke-width="2" stroke-dasharray="2 8" stroke-linecap="round"/>
+      <circle cx="180" cy="20" r="5" fill="var(--blue)"/>
+      <circle cx="578" cy="20" r="5" fill="var(--blue)"/>
+      <circle cx="976" cy="20" r="5" fill="var(--mint)"/>
+    </svg>
+
+    <div class="footer">
+      <span class="brand"><b>머니코스</b> · Money Course</span>
+      <span class="pageno">06</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SLIDE 7 — FEATURE A · BUDGET COACH ============ -->
+<section class="slide">
+  <div class="pad">
+    <div class="eyebrow">KEY FEATURE 01 · BUDGET COACH</div>
+    <div class="title-block">
+      <div class="h2">AI 생활비 코치 — 하루가 아니라 <span class="blue-text">한 달</span>을 관리한다</div>
+      <p class="lead">남은 생활비와 소비 패턴까지 읽어, 이번 주 얼마를 쓰면 좋을지 AI가 먼저 제안한다.</p>
+    </div>
+
+    <div style="display:grid; grid-template-columns:1fr 1.2fr; gap:34px; margin-top:26px; align-items:start;">
+      <!-- budget widget -->
+      <div class="card" style="padding:24px;">
+        <div class="eyebrow gray" style="font-size:11px;">THIS MONTH · 생활비</div>
+        <div style="display:flex; align-items:center; gap:20px; margin-top:14px;">
+          <svg width="150" height="150" viewBox="0 0 200 200">
+            <circle cx="100" cy="100" r="78" fill="none" stroke="#EEF0F3" stroke-width="22"/>
+            <circle cx="100" cy="100" r="78" fill="none" stroke="var(--blue)" stroke-width="22" stroke-linecap="round" stroke-dasharray="372 490" transform="rotate(-90 100 100)"/>
+            <text x="100" y="90" text-anchor="middle" font-size="13" font-weight="700" fill="var(--sub)">남은 예산</text>
+            <text x="100" y="126" text-anchor="middle" font-size="32" font-weight="800" fill="var(--mint)">₩12만</text>
+          </svg>
+          <div style="flex:1;">
+            <div class="bgrow"><span>이번 달 생활비</span><b class="num">₩50만</b></div>
+            <div class="bgrow"><span>사용</span><b class="num blue-text">₩38만</b></div>
+            <div class="bgrow" style="border-bottom:none;"><span>남은 예산</span><b class="num mint-text">₩12만</b></div>
+            <svg width="100%" height="10" viewBox="0 0 220 10" style="margin-top:10px;">
+              <rect x="0" y="0" width="220" height="10" rx="5" fill="#EEF0F3"/>
+              <rect x="0" y="0" width="167" height="10" rx="5" fill="var(--blue)"/>
+            </svg>
+            <div style="font-size:11px; color:var(--sub); font-weight:600; margin-top:6px;">76% 사용 · 12일 남음</div>
+          </div>
+        </div>
+        <div style="display:flex; gap:10px; margin-top:20px; align-items:flex-start;">
+          <div style="flex:none; width:34px; height:34px; border-radius:10px; background:var(--ink); color:#fff; font-size:11px; font-weight:800; display:flex; align-items:center; justify-content:center;">AI</div>
+          <div style="background:var(--blue-tint); color:var(--deep); border-radius:4px 14px 14px 14px; padding:12px 15px; font-size:13.5px; font-weight:700; line-height:1.45;">
+            이번 주말은 <span class="num">최대 3만원</span> 사용을 추천해요.<br/>남은 예산엔 무료 전시 코스가 잘 맞아요.
+          </div>
+        </div>
+      </div>
+
+      <!-- coaching logic -->
+      <div>
+        <div class="eyebrow gray" style="font-size:11px;">COACHING LOGIC · 예산 상태 → 코스 추천</div>
+        <svg width="640" height="300" viewBox="0 0 640 300" style="margin-top:14px;">
+          <rect x="0" y="118" width="172" height="64" rx="14" fill="var(--ink)"/>
+          <text x="86" y="146" text-anchor="middle" font-size="14" font-weight="800" fill="#fff">소비 패턴 분석</text>
+          <text x="86" y="168" text-anchor="middle" font-size="11" font-weight="600" fill="rgba(255,255,255,.6)">주간 지출 vs 예산</text>
+          <path d="M172 150 C 210 150, 210 66, 244 66" stroke="#C7CBD3" stroke-width="2" fill="none"/>
+          <path d="M172 150 C 210 150, 210 238, 244 238" stroke="#C7CBD3" stroke-width="2" fill="none"/>
+          <rect x="244" y="38" width="150" height="56" rx="13" fill="var(--blue-tint)"/>
+          <text x="319" y="64" text-anchor="middle" font-size="13" font-weight="800" fill="var(--deep)">과소비한 주</text>
+          <text x="319" y="82" text-anchor="middle" font-size="11" font-weight="600" fill="#5878D8">예산 빠듯</text>
+          <rect x="244" y="210" width="150" height="56" rx="13" fill="var(--mint-tint)"/>
+          <text x="319" y="236" text-anchor="middle" font-size="13" font-weight="800" fill="#0E8C66">예산 여유</text>
+          <text x="319" y="254" text-anchor="middle" font-size="11" font-weight="600" fill="#0E8C66">여윳돈 충분</text>
+          <path d="M394 66 H 436" stroke="#C7CBD3" stroke-width="2"/><path d="M432 60 l8 6 l-8 6" fill="#C7CBD3"/>
+          <path d="M394 238 H 436" stroke="#C7CBD3" stroke-width="2"/><path d="M432 232 l8 6 l-8 6" fill="#C7CBD3"/>
+          <rect x="440" y="32" width="200" height="68" rx="13" fill="#fff" stroke="var(--hair)"/>
+          <text x="458" y="60" font-size="14" font-weight="800" fill="var(--ink)">저비용 코스 우선</text>
+          <text x="458" y="82" font-size="11.5" font-weight="600" fill="var(--sub)">무료전시·공원·산책·팝업</text>
+          <rect x="440" y="204" width="200" height="68" rx="13" fill="#fff" stroke="var(--hair)"/>
+          <text x="458" y="232" font-size="14" font-weight="800" fill="var(--ink)">다양한 경험 추천</text>
+          <text x="458" y="254" font-size="11.5" font-weight="600" fill="var(--sub)">평소보다 폭넓은 코스</text>
+        </svg>
+        <div style="margin-top:8px; font-size:13.5px; font-weight:700; color:var(--ink);">예산을 지키면서 만족도는 유지 — <span class="blue-text">소비 코치가 곧 리텐션 훅</span>.</div>
+      </div>
+    </div>
+
+    <div class="footer">
+      <span class="brand"><b>머니코스</b> · Money Course</span>
+      <span class="pageno">07</span>
+    </div>
+  </div>
+  <style>
+    .bgrow{display:flex; justify-content:space-between; align-items:baseline; padding:6px 0; font-size:13px; color:var(--sub); font-weight:600; border-bottom:1px solid var(--hair);}
+    .bgrow b{font-size:16px; color:var(--ink); font-weight:800;}
+  </style>
+</section>
+
+<!-- ============ SLIDE 8 — FEATURE B · PERSONALIZATION ============ -->
+<section class="slide">
+  <div class="pad">
+    <div class="eyebrow">KEY FEATURE 02 · PERSONALIZATION</div>
+    <div class="title-block">
+      <div class="h2">AI 개인화 학습 — 예산뿐 아니라 <span class="blue-text">행동</span>을 학습한다</div>
+      <p class="lead">저장·체류·재방문 같은 행동 시그널이 쌓일수록 추천 정확도가 계속 올라간다.</p>
+    </div>
+
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:40px; margin-top:28px; align-items:center;">
+      <!-- signals + accuracy -->
+      <div>
+        <div class="eyebrow gray" style="font-size:11px;">LEARNED SIGNALS · 학습 시그널</div>
+        <div style="display:flex; flex-wrap:wrap; gap:10px; margin-top:16px;">
+          <span class="sig">실내 선호</span>
+          <span class="sig">카페 자주</span>
+          <span class="sig">혼자 놀기 선호</span>
+          <span class="sig">팝업 자주 저장</span>
+          <span class="sig">전시 오래 관람</span>
+          <span class="sig">오후 활동 多</span>
+        </div>
+        <div class="card" style="padding:20px; margin-top:22px;">
+          <div style="display:flex; justify-content:space-between; align-items:baseline;">
+            <span style="font-size:12px; font-weight:700; color:var(--sub);">추천 정확도 (주차별)</span>
+            <span style="font-size:14px; font-weight:800;" class="mint-text">+34%p</span>
+          </div>
+          <svg width="100%" height="124" viewBox="0 0 380 124" style="margin-top:10px;">
+            <line x1="6" y1="104" x2="374" y2="104" stroke="var(--hair)"/>
+            <polyline points="14,88 86,72 158,58 230,42 302,28 368,18" fill="none" stroke="var(--blue)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+            <g fill="var(--blue)"><circle cx="14" cy="88" r="3.5"/><circle cx="86" cy="72" r="3.5"/><circle cx="158" cy="58" r="3.5"/><circle cx="230" cy="42" r="3.5"/><circle cx="302" cy="28" r="3.5"/><circle cx="368" cy="18" r="5"/></g>
+            <g font-size="10" font-weight="600" fill="var(--sub)"><text x="10" y="120">W1</text><text x="150" y="120">W4</text><text x="350" y="120">W8</text></g>
+          </svg>
+        </div>
+      </div>
+
+      <!-- learning loop -->
+      <div>
+        <div class="eyebrow gray" style="font-size:11px;">USER ↔ AI LEARNING LOOP</div>
+        <svg width="540" height="300" viewBox="0 0 540 300" style="margin-top:10px;">
+          <circle cx="110" cy="150" r="64" fill="var(--blue-tint)"/>
+          <text x="110" y="146" text-anchor="middle" font-size="16" font-weight="800" fill="var(--deep)">사용자</text>
+          <text x="110" y="168" text-anchor="middle" font-size="11" font-weight="600" fill="#5878D8">행동</text>
+          <circle cx="430" cy="150" r="64" fill="var(--ink)"/>
+          <text x="430" y="146" text-anchor="middle" font-size="16" font-weight="800" fill="#fff">AI 모델</text>
+          <text x="430" y="168" text-anchor="middle" font-size="11" font-weight="600" fill="rgba(255,255,255,.6)">개인화</text>
+          <path d="M156 104 C 240 48, 300 48, 384 104" fill="none" stroke="var(--blue)" stroke-width="3"/>
+          <path d="M384 104 l-2 -12 l12 4" fill="var(--blue)"/>
+          <text x="270" y="58" text-anchor="middle" font-size="12.5" font-weight="700" fill="var(--ink)">행동 시그널 전달</text>
+          <text x="270" y="76" text-anchor="middle" font-size="10.5" font-weight="600" fill="var(--sub)">저장·체류·재방문</text>
+          <path d="M384 196 C 300 252, 240 252, 156 196" fill="none" stroke="var(--mint)" stroke-width="3"/>
+          <path d="M156 196 l2 12 l-12 -4" fill="var(--mint)"/>
+          <text x="270" y="238" text-anchor="middle" font-size="12.5" font-weight="700" fill="var(--ink)">더 정확한 추천</text>
+          <text x="270" y="256" text-anchor="middle" font-size="10.5" font-weight="600" fill="var(--sub)">취향에 맞춘 코스</text>
+        </svg>
+        <div style="margin-top:6px; font-size:13.5px; font-weight:700; color:var(--ink);">쓸수록 똑똑해지는 추천이 곧 <span class="blue-text">전환 장벽(해자)</span>.</div>
+      </div>
+    </div>
+
+    <div class="footer">
+      <span class="brand"><b>머니코스</b> · Money Course</span>
+      <span class="pageno">08</span>
+    </div>
+  </div>
+  <style>
+    .sig{font-size:14px; font-weight:700; padding:10px 16px; border-radius:999px; background:var(--muted); color:#374151; border:1px solid var(--hair);}
+  </style>
+</section>
+
+<!-- ============ SLIDE 9 — FEATURE C · PROACTIVE BRIEFING ============ -->
+<section class="slide">
+  <div class="pad" style="padding:56px 64px;">
+    <div class="eyebrow">KEY FEATURE 03 · PROACTIVE AI</div>
+    <h2 class="h2" style="margin-top:12px;">오늘의 AI 브리핑 — 검색하지 않아도 <span class="blue-text">먼저 제안</span>한다</h2>
+
+    <div style="display:grid; grid-template-columns:262px 1fr; gap:54px; margin-top:26px; align-items:start;">
+      <!-- phone -->
+      <div class="phone">
+        <div class="screen">
+          <div class="statusbar"><span>9:41</span><span>● ● ●</span></div>
+          <div style="padding:0 16px;">
+            <div style="font-size:11px; font-weight:800; color:var(--blue); letter-spacing:.1em;">TODAY</div>
+            <div style="font-size:18px; font-weight:800; margin-top:4px;">오늘의 브리핑</div>
+            <div class="brief"><span class="bdot" style="background:var(--blue);"></span><p>오늘은 비가 와서 <b>실내 코스</b>를 추천드려요.</p></div>
+            <div class="brief"><span class="bdot" style="background:var(--mint);"></span><p>이번 달 예산이 얼마 안 남아 <b>무료 전시</b> 위주로 추천할게요.</p></div>
+            <div class="brief"><span class="bdot" style="background:#F59E0B;"></span><p>저장한 <b>팝업스토어</b>가 오늘 마지막 운영일이에요.</p></div>
+            <div class="brief"><span class="bdot" style="background:#8B5CF6;"></span><p>퇴근 시간이 가까워 <b>주변 맛집</b>을 함께 추천드려요.</p></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- trigger mapping -->
+      <div>
+        <div class="eyebrow gray" style="font-size:11px;">TRIGGER → BRIEFING · 매핑</div>
+        <div style="margin-top:16px; display:flex; flex-direction:column; gap:14px;">
+          <div class="trow">
+            <div class="ticon" style="background:var(--blue-tint); color:var(--deep);">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M7 16a4 4 0 010-8 5 5 0 019.6-1.5A3.5 3.5 0 0118 16z"/><path d="M8 20l-1 2M12 20l-1 2M16 20l-1 2"/></svg>
+            </div>
+            <div class="ttxt"><b>날씨</b><span>비/더위/추위</span></div>
+            <svg class="tarrow" width="40" height="14" viewBox="0 0 40 14"><path d="M0 7h32" stroke="#C7CBD3" stroke-width="2"/><path d="M30 2l6 5-6 5" fill="none" stroke="#C7CBD3" stroke-width="2"/></svg>
+            <div class="tres">실내/야외 코스 자동 전환</div>
+          </div>
+          <div class="trow">
+            <div class="ticon" style="background:var(--mint-tint); color:#0E8C66;">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+            </div>
+            <div class="ttxt"><b>예산</b><span>잔액 부족</span></div>
+            <svg class="tarrow" width="40" height="14" viewBox="0 0 40 14"><path d="M0 7h32" stroke="#C7CBD3" stroke-width="2"/><path d="M30 2l6 5-6 5" fill="none" stroke="#C7CBD3" stroke-width="2"/></svg>
+            <div class="tres">무료·저비용 경험 우선 추천</div>
+          </div>
+          <div class="trow">
+            <div class="ticon" style="background:#FEF3E2; color:#C77700;">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h14l-1 13a2 2 0 01-2 2H8a2 2 0 01-2-2z"/><path d="M9 4V3a3 3 0 016 0v1"/></svg>
+            </div>
+            <div class="ttxt"><b>저장</b><span>마감 임박</span></div>
+            <svg class="tarrow" width="40" height="14" viewBox="0 0 40 14"><path d="M0 7h32" stroke="#C7CBD3" stroke-width="2"/><path d="M30 2l6 5-6 5" fill="none" stroke="#C7CBD3" stroke-width="2"/></svg>
+            <div class="tres">놓치기 전 리마인드 알림</div>
+          </div>
+          <div class="trow">
+            <div class="ticon" style="background:#F1ECFE; color:#6D28D9;">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l2.5 2.5"/></svg>
+            </div>
+            <div class="ttxt"><b>시간</b><span>퇴근·식사때</span></div>
+            <svg class="tarrow" width="40" height="14" viewBox="0 0 40 14"><path d="M0 7h32" stroke="#C7CBD3" stroke-width="2"/><path d="M30 2l6 5-6 5" fill="none" stroke="#C7CBD3" stroke-width="2"/></svg>
+            <div class="tres">시간대 맞춤 주변 추천</div>
+          </div>
+        </div>
+        <div style="margin-top:18px; font-size:13.5px; font-weight:700; color:var(--ink);">사용자가 묻기 전에 AI가 먼저 — <span class="blue-text">진입 빈도(DAU) 견인</span>.</div>
+      </div>
+    </div>
+
+    <div class="footer">
+      <span class="brand"><b>머니코스</b> · Money Course</span>
+      <span class="pageno">09</span>
+    </div>
+  </div>
+  <style>
+    .brief{display:flex; gap:10px; align-items:flex-start; background:var(--muted); border-radius:13px; padding:13px 14px; margin-top:12px;}
+    .brief .bdot{flex:none; width:9px; height:9px; border-radius:50%; margin-top:5px;}
+    .brief p{font-size:12.5px; font-weight:600; color:#374151; line-height:1.45;}
+    .brief b{font-weight:800; color:var(--ink);}
+    .trow{display:flex; align-items:center; gap:16px; background:var(--canvas); border:1px solid var(--hair); border-radius:14px; padding:14px 18px; box-shadow:var(--shadow-sm);}
+    .ticon{flex:none; width:46px; height:46px; border-radius:13px; display:flex; align-items:center; justify-content:center;}
+    .ttxt{width:120px;}
+    .ttxt b{font-size:16px; font-weight:800; display:block;}
+    .ttxt span{font-size:12px; color:var(--sub); font-weight:600;}
+    .tarrow{flex:none;}
+    .tres{flex:1; font-size:15px; font-weight:700; color:var(--ink);}
+  </style>
+</section>
+
+<!-- ============ SLIDE 10 — FEATURE D · SOCIAL PROOF ============ -->
+<section class="slide">
+  <div class="pad">
+    <div class="eyebrow">KEY FEATURE 04 · SOCIAL PROOF</div>
+    <div class="title-block">
+      <div class="h2">소셜 · 실데이터 랭킹 — 또래의 <span class="blue-text">실제 소비</span>로 검증한다</div>
+      <p class="lead">단순 공유를 넘어 실제 방문·평점·만족도 데이터로 랭킹. AI 추천 + 또래 실경험 = 신뢰.</p>
+    </div>
+
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:28px; margin-top:26px;">
+      <!-- ranking card 1 -->
+      <div class="card" style="padding:24px;">
+        <div style="display:flex; justify-content:space-between; align-items:flex-start;">
+          <div>
+            <div class="chip blue">SEGMENT</div>
+            <div style="font-size:17px; font-weight:800; margin-top:10px;">20대 여성 · 혼자 · 2만원 이하</div>
+            <div style="font-size:12px; color:var(--sub); font-weight:600; margin-top:3px;">만족도 기준 TOP 10</div>
+          </div>
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4a1 1 0 01-1-1V5a1 1 0 011-1h2M18 9h2a1 1 0 001-1V5a1 1 0 00-1-1h-2"/><path d="M6 4h12v5a6 6 0 01-12 0z"/><path d="M9 18h6M10 22h4M12 15v3"/></svg>
+        </div>
+        <div style="margin-top:18px; display:flex; flex-direction:column; gap:10px;">
+          <div class="rrow"><span class="rk gold">1</span><div class="rname">을지로 카페 골목 산책</div><span class="chip mint num">₩14,500</span><span class="rscore">98</span></div>
+          <div class="rrow"><span class="rk silver">2</span><div class="rname">서촌 독립서점 + 전시</div><span class="chip mint num">₩9,000</span><span class="rscore">96</span></div>
+          <div class="rrow"><span class="rk bronze">3</span><div class="rname">한강 혼자 피크닉</div><span class="chip mint num">₩11,000</span><span class="rscore">95</span></div>
+          <div class="rrow"><span class="rk">4</span><div class="rname">성수 소품샵 투어</div><span class="chip mint num">₩18,000</span><span class="rscore">93</span></div>
+        </div>
+      </div>
+
+      <!-- ranking card 2 -->
+      <div class="card" style="padding:24px;">
+        <div style="display:flex; justify-content:space-between; align-items:flex-start;">
+          <div>
+            <div class="chip blue">SEGMENT</div>
+            <div style="font-size:17px; font-weight:800; margin-top:10px;">20대 커플 · 5만원 이하</div>
+            <div style="font-size:12px; color:var(--sub); font-weight:600; margin-top:3px;">실제 평점 ★4.9 데이트 코스 TOP 10</div>
+          </div>
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="var(--mint)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-4.4-9.5-8.5A5 5 0 0112 6a5 5 0 019.5 6.5C19 16.6 12 21 12 21z"/></svg>
+        </div>
+        <div style="margin-top:18px; display:flex; flex-direction:column; gap:10px;">
+          <div class="rrow"><span class="rk gold">1</span><div class="rname">성수 브런치 + 루프탑</div><span class="chip mint num">₩48,000</span><span class="rscore">★4.9</span></div>
+          <div class="rrow"><span class="rk silver">2</span><div class="rname">연남 산책 + 와인바</div><span class="chip mint num">₩42,000</span><span class="rscore">★4.9</span></div>
+          <div class="rrow"><span class="rk bronze">3</span><div class="rname">한강 자전거 + 야경</div><span class="chip mint num">₩29,000</span><span class="rscore">★4.8</span></div>
+          <div class="rrow"><span class="rk">4</span><div class="rname">전시 + 파스타 디너</div><span class="chip mint num">₩46,000</span><span class="rscore">★4.8</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top:20px; font-size:13.5px; font-weight:700; color:var(--ink);">광고가 아닌 <span class="mint-text">실제 데이터로 줄 세운 신뢰</span> — 추천 클릭률과 전환을 끌어올린다.</div>
+
+    <div class="footer">
+      <span class="brand"><b>머니코스</b> · Money Course</span>
+      <span class="pageno">10</span>
+    </div>
+  </div>
+  <style>
+    .rrow{display:flex; align-items:center; gap:12px; background:var(--muted); border-radius:13px; padding:11px 14px;}
+    .rk{flex:none; width:26px; height:26px; border-radius:8px; display:flex; align-items:center; justify-content:center; font-size:13px; font-weight:800; background:#E3E6EB; color:var(--sub);}
+    .rk.gold{background:#FFE5B4; color:#B8860B;}
+    .rk.silver{background:#E7EAEF; color:#7A8290;}
+    .rk.bronze{background:#F4DEC9; color:#B06B2C;}
+    .rname{flex:1; font-size:14px; font-weight:700;}
+    .rscore{font-size:15px; font-weight:800; color:var(--ink); width:48px; text-align:right; font-variant-numeric:tabular-nums;}
+  </style>
+</section>
+
+<!-- ============ SLIDE 11 — FEATURE E · GAMIFICATION ============ -->
+<section class="slide">
+  <div class="pad">
+    <div class="eyebrow">KEY FEATURE 05 · GAMIFICATION</div>
+    <div class="title-block">
+      <div class="h2">게이미피케이션 — 미션과 배지로 <span class="blue-text">콘텐츠가 쌓인다</span></div>
+      <p class="lead">미션 → 코스 생성·공유 → 배지 획득 → 재방문. UGC와 커뮤니티를 동시에 키우는 루프.</p>
+    </div>
+
+    <div style="display:grid; grid-template-columns:1.35fr 1fr; gap:40px; margin-top:26px; align-items:start;">
+      <!-- badges -->
+      <div>
+        <div class="eyebrow gray" style="font-size:11px;">BADGES &amp; PROGRESS</div>
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-top:16px;">
+          <div class="badge">
+            <div class="bmedal" style="background:var(--blue-tint);">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="9" r="6"/><path d="M9 14l-2 7 5-3 5 3-2-7"/></svg>
+            </div>
+            <div class="bname">1만원 챌린지</div>
+            <div class="bbar"><i style="width:80%; background:var(--blue);"></i></div>
+            <div class="bpct">8 / 10</div>
+          </div>
+          <div class="badge">
+            <div class="bmedal" style="background:#FEE7EE;">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#E0436E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-4.4-9.5-8.5A5 5 0 0112 6a5 5 0 019.5 6.5C19 16.6 12 21 12 21z"/></svg>
+            </div>
+            <div class="bname">3만원 데이트</div>
+            <div class="bbar"><i style="width:55%; background:#E0436E;"></i></div>
+            <div class="bpct">진행 중</div>
+          </div>
+          <div class="badge">
+            <div class="bmedal" style="background:var(--mint-tint);">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--mint)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l2.4 6.9H22l-6 4.4 2.3 7-6.3-4.6L5.7 20l2.3-7-6-4.4h7.6z"/></svg>
+            </div>
+            <div class="bname">이번 달 절약왕</div>
+            <div class="bbar"><i style="width:100%; background:var(--mint);"></i></div>
+            <div class="bpct" style="color:var(--mint);">달성 완료</div>
+          </div>
+          <div class="badge">
+            <div class="bmedal" style="background:#FEF3E2;">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#C77700" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3 6 6 .9-4.5 4.3 1 6.1L12 16.8 6.5 19.3l1-6.1L3 8.9 9 8z"/></svg>
+            </div>
+            <div class="bname">가성비 탐험가</div>
+            <div class="bbar"><i style="width:40%; background:#C77700;"></i></div>
+            <div class="bpct">12 / 30</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- engagement loop -->
+      <div>
+        <div class="eyebrow gray" style="font-size:11px;">ENGAGEMENT LOOP</div>
+        <svg width="420" height="330" viewBox="0 0 420 330" style="margin-top:10px;">
+          <circle cx="210" cy="165" r="116" fill="none" stroke="var(--hair)" stroke-width="1.5"/>
+          <path d="M210 49 A116 116 0 0 1 326 165" fill="none" stroke="var(--blue)" stroke-width="3"/>
+          <path d="M326 165 A116 116 0 0 1 210 281" fill="none" stroke="var(--blue)" stroke-width="3"/>
+          <path d="M210 281 A116 116 0 0 1 94 165" fill="none" stroke="var(--mint)" stroke-width="3"/>
+          <path d="M94 165 A116 116 0 0 1 210 49" fill="none" stroke="var(--mint)" stroke-width="3"/>
+          <path d="M319 157 l9 9 l9 -11" fill="none" stroke="var(--blue)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M101 173 l-9 -9 l-9 11" fill="none" stroke="var(--mint)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+          <g font-size="12.5" font-weight="700">
+            <g><rect x="166" y="28" width="88" height="40" rx="11" fill="#fff" stroke="var(--hair)"/><text x="210" y="53" text-anchor="middle">미션 도전</text></g>
+            <g><rect x="300" y="145" width="116" height="40" rx="11" fill="#fff" stroke="var(--hair)"/><text x="358" y="170" text-anchor="middle">코스 생성·공유</text></g>
+            <g><rect x="166" y="262" width="88" height="40" rx="11" fill="#fff" stroke="var(--hair)"/><text x="210" y="287" text-anchor="middle">배지 획득</text></g>
+            <g><rect x="6" y="145" width="88" height="40" rx="11" fill="#fff" stroke="var(--hair)"/><text x="50" y="170" text-anchor="middle">재방문</text></g>
+          </g>
+          <circle cx="210" cy="165" r="50" fill="var(--ink)"/>
+          <text x="210" y="160" text-anchor="middle" font-size="13" font-weight="800" fill="#fff">참여</text>
+          <text x="210" y="180" text-anchor="middle" font-size="11" font-weight="600" fill="rgba(255,255,255,.7)">UGC ↑</text>
+        </svg>
+      </div>
+    </div>
+
+    <div style="margin-top:6px; font-size:13.5px; font-weight:700; color:var(--ink);">미션이 콘텐츠를 만들고, 콘텐츠가 바이럴을 만든다 — <span class="mint-text">UGC · 커뮤니티 성장 엔진</span>.</div>
+
+    <div class="footer">
+      <span class="brand"><b>머니코스</b> · Money Course</span>
+      <span class="pageno">11</span>
+    </div>
+  </div>
+  <style>
+    .badge{border:1px solid var(--hair); border-radius:16px; padding:18px; box-shadow:var(--shadow-sm); background:var(--canvas);}
+    .bmedal{width:48px; height:48px; border-radius:14px; display:flex; align-items:center; justify-content:center;}
+    .bname{font-size:16px; font-weight:800; margin-top:14px;}
+    .bbar{height:7px; border-radius:4px; background:#EEF0F3; margin-top:12px; overflow:hidden;}
+    .bbar i{display:block; height:100%; border-radius:4px;}
+    .bpct{font-size:11.5px; font-weight:700; color:var(--sub); margin-top:7px;}
+  </style>
+</section>
+
+<!-- ============ SLIDE 12 — THE TWIST: SOCIAL ============ -->
+<section class="slide">
+  <div class="pad">
+    <div class="eyebrow">THE TWIST · SOCIAL</div>
+    <div class="title-block">
+      <div class="h2">추천이 아니라 <span class="blue-text">소셜</span>이 핵심이다.</div>
+      <p class="lead">사용자가 만든 '예산 코스'가 공유되고, 그 반응이 다시 AI를 학습시킨다.</p>
+    </div>
+
+    <div style="display:grid; grid-template-columns:1fr 1.05fr; gap:40px; margin-top:34px; align-items:center;">
+      <!-- budget course cards -->
+      <div>
+        <div class="eyebrow gray" style="font-size:11px;">USER-GENERATED BUDGET COURSES</div>
+        <div class="grid" style="grid-template-columns:1fr 1fr; margin-top:16px; gap:12px;">
+          <div class="card muted" style="padding:18px;">
+            <div class="chip mint num">₩10,000</div>
+            <div style="font-weight:700; margin-top:12px; font-size:15px;">1만원으로 놀기</div>
+          </div>
+          <div class="card muted" style="padding:18px;">
+            <div class="chip mint num">₩20,000</div>
+            <div style="font-weight:700; margin-top:12px; font-size:15px;">2만원 데이트</div>
+          </div>
+          <div class="card muted" style="padding:18px;">
+            <div class="chip mint num">₩30,000</div>
+            <div style="font-weight:700; margin-top:12px; font-size:15px;">3만원 성수 코스</div>
+          </div>
+          <div class="card muted" style="padding:18px;">
+            <div class="chip mint num">₩50,000</div>
+            <div style="font-weight:700; margin-top:12px; font-size:15px;">5만원 서울 여행</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- flywheel -->
+      <div>
+        <div class="eyebrow gray" style="font-size:11px;">LEARNING FLYWHEEL</div>
+        <svg width="540" height="320" viewBox="0 0 540 320" style="margin-top:6px;">
+          <!-- rotating arrows -->
+          <circle cx="270" cy="160" r="118" fill="none" stroke="var(--hair)" stroke-width="1.5"/>
+          <path d="M270 42 A118 118 0 0 1 388 160" fill="none" stroke="var(--blue)" stroke-width="3"/>
+          <path d="M388 160 A118 118 0 0 1 270 278" fill="none" stroke="var(--blue)" stroke-width="3"/>
+          <path d="M270 278 A118 118 0 0 1 152 160" fill="none" stroke="var(--mint)" stroke-width="3"/>
+          <path d="M152 160 A118 118 0 0 1 270 42" fill="none" stroke="var(--mint)" stroke-width="3"/>
+          <path d="M381 152 l9 9 l9 -11" fill="none" stroke="var(--blue)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M159 168 l-9 -9 l-9 11" fill="none" stroke="var(--mint)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+
+          <!-- nodes -->
+          <g font-size="12.5" font-weight="700">
+            <g><rect x="218" y="20" width="104" height="40" rx="11" fill="#fff" stroke="var(--hair)"/><text x="270" y="45" text-anchor="middle">코스 공유</text></g>
+            <g><rect x="396" y="140" width="124" height="40" rx="11" fill="#fff" stroke="var(--hair)"/><text x="458" y="165" text-anchor="middle">저장·따라가기</text></g>
+            <g><rect x="208" y="260" width="124" height="40" rx="11" fill="#fff" stroke="var(--hair)"/><text x="270" y="285" text-anchor="middle">좋아요·후기</text></g>
+            <g><rect x="20" y="140" width="124" height="40" rx="11" fill="#fff" stroke="var(--hair)"/><text x="82" y="165" text-anchor="middle">재방문·취향</text></g>
+          </g>
+          <!-- center -->
+          <circle cx="270" cy="160" r="52" fill="var(--ink)"/>
+          <text x="270" y="155" text-anchor="middle" font-size="15" font-weight="800" fill="#fff">AI</text>
+          <text x="270" y="176" text-anchor="middle" font-size="11" font-weight="600" fill="rgba(255,255,255,.7)">정확도 ↑</text>
+        </svg>
+      </div>
+    </div>
+
+    <div style="margin-top:6px; font-size:15px; font-weight:700; color:var(--ink);">
+      더 많이 공유될수록 <span class="mint-text">데이터가 쌓이고</span>, AI는 <span class="blue-text">더 정확</span>해진다. — 콘텐츠가 곧 해자다.
+    </div>
+
+    <div class="footer">
+      <span class="brand"><b>머니코스</b> · Money Course</span>
+      <span class="pageno">12</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SLIDE 13 — PRODUCT MOCKUPS ============ -->
+<section class="slide">
+  <div class="pad" style="padding:56px 64px;">
+    <div class="eyebrow">PRODUCT</div>
+    <h2 class="h2" style="margin-top:12px;">한 흐름으로 이어지는 세 화면</h2>
+
+    <div style="display:flex; justify-content:space-between; gap:30px; margin-top:34px; padding:0 10px;">
+
+      <!-- PHONE A: budget input -->
+      <div style="text-align:center;">
+        <div class="phone">
+          <div class="screen">
+            <div class="statusbar"><span>9:41</span><span>● ● ●</span></div>
+            <div style="padding:0 18px;">
+              <div style="font-size:11px; font-weight:800; color:var(--blue); letter-spacing:.1em;">STEP 1</div>
+              <div style="font-size:19px; font-weight:800; margin-top:6px;">오늘 예산은?</div>
+
+              <div style="margin-top:20px; background:var(--muted); border-radius:16px; padding:18px;">
+                <div style="font-size:11px; color:var(--sub); font-weight:700;">BUDGET</div>
+                <div style="font-size:30px; font-weight:800; margin-top:2px;" class="num">₩30,000</div>
+                <svg width="100%" height="26" viewBox="0 0 230 26" style="margin-top:6px;">
+                  <rect x="0" y="10" width="230" height="6" rx="3" fill="#DfE3EA"/>
+                  <rect x="0" y="10" width="150" height="6" rx="3" fill="var(--blue)"/>
+                  <circle cx="150" cy="13" r="11" fill="#fff" stroke="var(--blue)" stroke-width="3"/>
+                </svg>
+              </div>
+
+              <div style="font-size:11px; color:var(--sub); font-weight:700; margin-top:18px;">동행</div>
+              <div class="chiprow">
+                <span class="mchip on">연인</span><span class="mchip">혼자</span><span class="mchip">친구</span>
+              </div>
+              <div style="font-size:11px; color:var(--sub); font-weight:700; margin-top:14px;">분위기</div>
+              <div class="chiprow">
+                <span class="mchip on">감성</span><span class="mchip">활동적</span><span class="mchip">실내</span>
+              </div>
+            </div>
+            <div class="cta">AI 코스 만들기</div>
+          </div>
+        </div>
+        <div class="caption">예산 입력 화면</div>
+      </div>
+
+      <!-- PHONE B: AI course timeline -->
+      <div style="text-align:center;">
+        <div class="phone">
+          <div class="screen">
+            <div class="statusbar"><span>9:41</span><span>● ● ●</span></div>
+            <div style="padding:0 18px;">
+              <div style="display:flex; justify-content:space-between; align-items:center;">
+                <div>
+                  <div style="font-size:11px; font-weight:800; color:var(--blue); letter-spacing:.1em;">YOUR COURSE</div>
+                  <div style="font-size:18px; font-weight:800; margin-top:4px;">성수 감성 데이트</div>
+                </div>
+                <div style="text-align:right;">
+                  <div style="font-size:10px; color:var(--sub); font-weight:700;">만족도</div>
+                  <div style="font-size:20px; font-weight:800; color:var(--mint);" class="num">96</div>
+                </div>
+              </div>
+
+              <div style="display:flex; gap:8px; margin-top:12px;">
+                <span class="mchip mint num">총 ₩28,500</span>
+                <span class="mchip num">5코스 · 6시간</span>
+              </div>
+
+              <div class="tl">
+                <div class="tlitem"><div class="dot"></div><div class="tlc"><b>11:00 브런치 카페</b><span class="num mint-text">₩9,000</span></div></div>
+                <div class="tlitem"><div class="dot"></div><div class="tlc"><b>13:30 무료 사진전</b><span class="num mint-text">₩0</span></div></div>
+                <div class="tlitem"><div class="dot"></div><div class="tlc"><b>15:00 디저트 팝업</b><span class="num mint-text">₩6,500</span></div></div>
+                <div class="tlitem"><div class="dot blue"></div><div class="tlc"><b>18:00 파스타 맛집</b><span class="num mint-text">₩13,000</span></div></div>
+              </div>
+            </div>
+            <div class="cta">저장하고 공유하기</div>
+          </div>
+        </div>
+        <div class="caption">AI 설계 코스 타임라인</div>
+      </div>
+
+      <!-- PHONE C: social feed -->
+      <div style="text-align:center;">
+        <div class="phone">
+          <div class="screen">
+            <div class="statusbar"><span>9:41</span><span>● ● ●</span></div>
+            <div style="padding:0 18px;">
+              <div style="font-size:18px; font-weight:800;">탐색</div>
+              <div class="chiprow" style="margin-top:10px;">
+                <span class="mchip on num">₩1만</span><span class="mchip num">₩2만</span><span class="mchip num">₩3만</span><span class="mchip num">₩5만</span>
+              </div>
+
+              <div class="fcard">
+                <div class="fthumb"></div>
+                <div style="padding:10px 12px;">
+                  <div style="font-weight:700; font-size:13px;">2만원 데이트 코스</div>
+                  <div style="display:flex; justify-content:space-between; align-items:center; margin-top:8px;">
+                    <span class="mchip mint num" style="padding:3px 8px; font-size:10px;">₩19,800</span>
+                    <span style="font-size:11px; color:var(--sub); font-weight:600;">♥ 1.2k · 저장 340</span>
+                  </div>
+                </div>
+              </div>
+              <div class="fcard">
+                <div class="fthumb alt"></div>
+                <div style="padding:10px 12px;">
+                  <div style="font-weight:700; font-size:13px;">1만원 한강 피크닉</div>
+                  <div style="display:flex; justify-content:space-between; align-items:center; margin-top:8px;">
+                    <span class="mchip mint num" style="padding:3px 8px; font-size:10px;">₩9,500</span>
+                    <span style="font-size:11px; color:var(--sub); font-weight:600;">♥ 980 · 저장 210</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="tabbar">
+              <span>홈</span><span class="acc">탐색</span><span>설계</span><span>저장</span>
+            </div>
+          </div>
+        </div>
+        <div class="caption">소셜 피드 (예산별 코스)</div>
+      </div>
+
+    </div>
+
+    <div class="footer">
+      <span class="brand"><b>머니코스</b> · Money Course</span>
+      <span class="pageno">13</span>
+    </div>
+  </div>
+  <style>
+    .phone{width:262px; height:480px; border-radius:38px; background:#0A0B0D; padding:9px; box-shadow:0 20px 40px rgba(10,11,13,.16); margin:0 auto;}
+    .screen{width:100%; height:100%; background:#fff; border-radius:30px; overflow:hidden; position:relative; display:flex; flex-direction:column;}
+    .statusbar{display:flex; justify-content:space-between; padding:14px 20px 10px; font-size:11px; font-weight:700; color:var(--ink);}
+    .statusbar span:last-child{color:#C7CBD3; font-size:7px; letter-spacing:1px;}
+    .chiprow{display:flex; gap:7px; margin-top:8px; flex-wrap:wrap;}
+    .mchip{font-size:11px; font-weight:700; padding:6px 11px; border-radius:999px; background:var(--muted); color:var(--sub);}
+    .mchip.on{background:var(--blue); color:#fff;}
+    .mchip.mint{background:var(--mint-tint); color:#0E8C66;}
+    .cta{position:absolute; bottom:16px; left:18px; right:18px; background:var(--blue); color:#fff; text-align:center; padding:13px; border-radius:14px; font-size:14px; font-weight:700;}
+    .caption{margin-top:18px; font-size:13px; font-weight:700; color:var(--sub);}
+    .tl{margin-top:14px; position:relative; padding-left:4px;}
+    .tlitem{display:flex; align-items:center; gap:12px; padding:7px 0; position:relative;}
+    .tl::before{content:''; position:absolute; left:5px; top:14px; bottom:14px; width:2px; background:var(--hair);}
+    .dot{width:12px; height:12px; border-radius:50%; background:#fff; border:3px solid var(--mint); z-index:1; flex:none;}
+    .dot.blue{border-color:var(--blue);}
+    .tlc{flex:1; display:flex; justify-content:space-between; align-items:center; background:var(--muted); border-radius:11px; padding:9px 12px;}
+    .tlc b{font-size:12px; font-weight:700;}
+    .tlc span{font-size:12px; font-weight:800;}
+    .fcard{margin-top:12px; border:1px solid var(--hair); border-radius:14px; overflow:hidden;}
+    .fthumb{height:74px; background:linear-gradient(135deg,#2F6BFF,#1E4FD9);}
+    .fthumb.alt{background:linear-gradient(135deg,#10B981,#0E8C66);}
+    .tabbar{position:absolute; bottom:0; left:0; right:0; display:flex; justify-content:space-around; padding:12px 0 16px; border-top:1px solid var(--hair); font-size:11px; font-weight:700; color:#C7CBD3; background:#fff;}
+    .tabbar .acc{color:var(--blue);}
+  </style>
+</section>
+
+<!-- ============ SLIDE 14 — WHY USERS USE IT ============ -->
+<section class="slide">
+  <div class="pad">
+    <div class="eyebrow gray">VALUE PROPOSITION</div>
+    <div class="title-block">
+      <div class="h2">왜 다시 열게 되는가</div>
+    </div>
+
+    <div class="grid" style="grid-template-columns:1fr 1fr; margin-top:40px; gap:20px;">
+      <div class="vp">
+        <div class="vpicon">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+        </div>
+        <div>
+          <div class="vptitle">10초 입력, 완성된 하루</div>
+          <div class="lead" style="font-size:14px; margin-top:8px;">검색·비교에 쓰던 40분을 10초로. 고민의 비용을 0에 가깝게 만든다.</div>
+        </div>
+      </div>
+      <div class="vp">
+        <div class="vpicon">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M2 12h20" opacity=".25"/><path d="M5 16l4-4 3 3 6-7"/><circle cx="18" cy="8" r="1.4" fill="var(--blue)" stroke="none"/></svg>
+        </div>
+        <div>
+          <div class="vptitle">예산이 시작점 (멘탈모델 일치)</div>
+          <div class="lead" style="font-size:14px; margin-top:8px;">'얼마 쓸까'에서 출발하는 유일한 서비스. 사고 흐름 그대로 동작한다.</div>
+        </div>
+      </div>
+      <div class="vp">
+        <div class="vpicon">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 00-4-4H6a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 00-3-3.87"/></svg>
+        </div>
+        <div>
+          <div class="vptitle">또래가 검증한 실제 코스 (신뢰)</div>
+          <div class="lead" style="font-size:14px; margin-top:8px;">광고가 아닌, 같은 예산으로 실제 다녀온 사람들의 코스. 신뢰가 다르다.</div>
+        </div>
+      </div>
+      <div class="vp">
+        <div class="vpicon">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a4 4 0 014 4 4 4 0 01-1 8 4 4 0 01-3 2 4 4 0 01-3-2 4 4 0 01-1-8 4 4 0 014-4z"/><path d="M12 11v8"/></svg>
+        </div>
+        <div>
+          <div class="vptitle">쓸수록 똑똑해지는 개인화</div>
+          <div class="lead" style="font-size:14px; margin-top:8px;">좋아요·저장·재방문이 모두 학습 신호. 내일의 추천은 오늘보다 정확하다.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer">
+      <span class="brand"><b>머니코스</b> · Money Course</span>
+      <span class="pageno">14</span>
+    </div>
+  </div>
+  <style>
+    .vp{display:flex; gap:18px; align-items:flex-start; background:var(--canvas); border:1px solid var(--hair); border-radius:var(--r); padding:26px 28px; box-shadow:var(--shadow-sm);}
+    .vpicon{flex:none; width:54px; height:54px; border-radius:15px; background:var(--blue-tint); display:flex; align-items:center; justify-content:center;}
+    .vptitle{font-size:19px; font-weight:800; letter-spacing:-.01em;}
+  </style>
+</section>
+
+<!-- ============ SLIDE 15 — IA ============ -->
+<section class="slide">
+  <div class="pad">
+    <div class="eyebrow gray">INFORMATION ARCHITECTURE</div>
+    <div class="title-block">
+      <div class="h2">정보 구조 (IA)</div>
+      <p class="lead">5개의 명확한 영역. 모든 동선은 '코스 설계'와 '탐색'으로 수렴한다.</p>
+    </div>
+
+    <svg width="1152" height="380" viewBox="0 0 1152 380" style="margin-top:24px;">
+      <!-- root -->
+      <rect x="496" y="6" width="160" height="50" rx="13" fill="var(--ink)"/>
+      <text x="576" y="37" text-anchor="middle" font-size="15" font-weight="800" fill="#fff">머니코스 앱</text>
+      <!-- connectors -->
+      <g stroke="var(--hair)" stroke-width="1.6" fill="none">
+        <path d="M576 56 V 78 H 116 V 100"/>
+        <path d="M576 56 V 78 H 346 V 100"/>
+        <path d="M576 78 V 100"/>
+        <path d="M576 56 V 78 H 806 V 100"/>
+        <path d="M576 56 V 78 H 1036 V 100"/>
+      </g>
+      <!-- columns -->
+      <g font-family="Pretendard">
+        <!-- 홈 -->
+        <rect x="16" y="100" width="200" height="56" rx="13" fill="var(--blue-tint)"/>
+        <text x="36" y="126" font-size="16" font-weight="800" fill="var(--deep)">홈</text>
+        <text x="36" y="145" font-size="11" font-weight="600" fill="#5878D8">Home · 추천 진입</text>
+
+        <rect x="246" y="100" width="200" height="56" rx="13" fill="var(--blue)"/>
+        <text x="266" y="126" font-size="16" font-weight="800" fill="#fff">코스 설계</text>
+        <text x="266" y="145" font-size="11" font-weight="600" fill="rgba(255,255,255,.8)">Plan · 핵심</text>
+
+        <rect x="476" y="100" width="200" height="56" rx="13" fill="var(--blue)"/>
+        <text x="496" y="126" font-size="16" font-weight="800" fill="#fff">탐색</text>
+        <text x="496" y="145" font-size="11" font-weight="600" fill="rgba(255,255,255,.8)">Explore · 피드</text>
+
+        <rect x="706" y="100" width="200" height="56" rx="13" fill="var(--muted)"/>
+        <text x="726" y="126" font-size="16" font-weight="800">저장함</text>
+        <text x="726" y="145" font-size="11" font-weight="600" fill="var(--sub)">Saved</text>
+
+        <rect x="936" y="100" width="200" height="56" rx="13" fill="var(--muted)"/>
+        <text x="956" y="126" font-size="16" font-weight="800">프로필</text>
+        <text x="956" y="145" font-size="11" font-weight="600" fill="var(--sub)">Profile</text>
+      </g>
+      <!-- children -->
+      <g stroke="var(--hair)" stroke-width="1.4" fill="none">
+        <path d="M116 156 V 186"/><path d="M346 156 V 186"/><path d="M576 156 V 186"/><path d="M806 156 V 186"/><path d="M1036 156 V 186"/>
+      </g>
+      <g font-size="12.5" font-weight="600" fill="#374151">
+        <!-- 홈 children -->
+        <rect x="16" y="186" width="200" height="34" rx="9" fill="#fff" stroke="var(--hair)"/><text x="36" y="208">오늘의 추천 코스</text>
+        <rect x="16" y="226" width="200" height="34" rx="9" fill="#fff" stroke="var(--hair)"/><text x="36" y="248">예산 빠른 시작</text>
+        <rect x="16" y="266" width="200" height="34" rx="9" fill="#fff" stroke="var(--hair)"/><text x="36" y="288">진행 중 코스</text>
+        <!-- plan children -->
+        <rect x="246" y="186" width="200" height="34" rx="9" fill="#fff" stroke="var(--hair)"/><text x="266" y="208">예산·조건 입력</text>
+        <rect x="246" y="226" width="200" height="34" rx="9" fill="#fff" stroke="var(--hair)"/><text x="266" y="248">AI 생성 결과</text>
+        <rect x="246" y="266" width="200" height="34" rx="9" fill="#fff" stroke="var(--hair)"/><text x="266" y="288">코스 편집·재생성</text>
+        <!-- explore children -->
+        <rect x="476" y="186" width="200" height="34" rx="9" fill="#fff" stroke="var(--hair)"/><text x="496" y="208">예산별 피드</text>
+        <rect x="476" y="226" width="200" height="34" rx="9" fill="#fff" stroke="var(--hair)"/><text x="496" y="248">지역·테마 탐색</text>
+        <rect x="476" y="266" width="200" height="34" rx="9" fill="#fff" stroke="var(--hair)"/><text x="496" y="288">코스 상세·따라가기</text>
+        <!-- saved children -->
+        <rect x="706" y="186" width="200" height="34" rx="9" fill="#fff" stroke="var(--hair)"/><text x="726" y="208">저장한 코스</text>
+        <rect x="706" y="226" width="200" height="34" rx="9" fill="#fff" stroke="var(--hair)"/><text x="726" y="248">좋아요·위시리스트</text>
+        <rect x="706" y="266" width="200" height="34" rx="9" fill="#fff" stroke="var(--hair)"/><text x="726" y="288">다녀온 코스 기록</text>
+        <!-- profile children -->
+        <rect x="936" y="186" width="200" height="34" rx="9" fill="#fff" stroke="var(--hair)"/><text x="956" y="208">내가 만든 코스</text>
+        <rect x="936" y="226" width="200" height="34" rx="9" fill="#fff" stroke="var(--hair)"/><text x="956" y="248">취향 태그·설정</text>
+        <rect x="936" y="266" width="200" height="34" rx="9" fill="#fff" stroke="var(--hair)"/><text x="956" y="288">팔로우·활동</text>
+      </g>
+    </svg>
+
+    <div class="footer">
+      <span class="brand"><b>머니코스</b> · Money Course</span>
+      <span class="pageno">15</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SLIDE 16 — USER FLOW ============ -->
+<section class="slide">
+  <div class="pad">
+    <div class="eyebrow gray">USER FLOW</div>
+    <div class="title-block">
+      <div class="h2">사용자 플로우</div>
+    </div>
+
+    <!-- main flow -->
+    <div style="margin-top:34px;">
+      <div class="eyebrow gray" style="font-size:11px;">MAIN FLOW · 코스 생성</div>
+      <svg width="1152" height="150" viewBox="0 0 1152 150" style="margin-top:14px;">
+        <g font-size="13.5" font-weight="700">
+          <g class="nd"><rect x="0" y="40" width="150" height="64" rx="14" fill="var(--muted)"/><text x="75" y="70" text-anchor="middle">진입</text><text x="75" y="90" text-anchor="middle" font-size="10" font-weight="600" fill="var(--sub)">홈 / 빠른 시작</text></g>
+          <g class="nd"><rect x="200" y="40" width="170" height="64" rx="14" fill="var(--blue-tint)"/><text x="285" y="70" text-anchor="middle" fill="var(--deep)">예산·조건 입력</text><text x="285" y="90" text-anchor="middle" font-size="10" font-weight="600" fill="#5878D8">10초</text></g>
+          <g class="nd"><rect x="420" y="40" width="160" height="64" rx="14" fill="var(--ink)"/><text x="500" y="70" text-anchor="middle" fill="#fff">AI 생성</text><text x="500" y="90" text-anchor="middle" font-size="10" font-weight="600" fill="rgba(255,255,255,.6)">로딩</text></g>
+          <g class="nd"><rect x="630" y="40" width="180" height="64" rx="14" fill="var(--blue)"/><text x="720" y="70" text-anchor="middle" fill="#fff">코스 결과</text><text x="720" y="90" text-anchor="middle" font-size="10" font-weight="600" fill="rgba(255,255,255,.75)">타임라인·총비용</text></g>
+          <g class="nd"><rect x="860" y="40" width="180" height="64" rx="14" fill="var(--mint-tint)"/><text x="950" y="66" text-anchor="middle" fill="#0E8C66">저장 / 공유</text><text x="950" y="88" text-anchor="middle" fill="#0E8C66">따라가기</text></g>
+          <g class="nd"><rect x="1090" y="40" width="62" height="64" rx="14" fill="var(--muted)"/><text x="1121" y="76" text-anchor="middle">피드</text></g>
+        </g>
+        <g stroke="var(--blue)" stroke-width="2.2" fill="none">
+          <path d="M150 72 H 196"/><path d="M370 72 H 416"/><path d="M580 72 H 626"/><path d="M810 72 H 856"/><path d="M1040 72 H 1086"/>
+        </g>
+        <g fill="var(--blue)">
+          <path d="M192 66 l8 6 l-8 6"/><path d="M412 66 l8 6 l-8 6"/><path d="M622 66 l8 6 l-8 6"/><path d="M852 66 l8 6 l-8 6"/><path d="M1082 66 l8 6 l-8 6"/>
+        </g>
+      </svg>
+    </div>
+
+    <!-- secondary social flow -->
+    <div style="margin-top:34px;">
+      <div class="eyebrow gray" style="font-size:11px;">SECONDARY FLOW · 소셜 따라가기</div>
+      <svg width="1152" height="150" viewBox="0 0 1152 150" style="margin-top:14px;">
+        <g font-size="13.5" font-weight="700">
+          <g><rect x="0" y="40" width="180" height="64" rx="14" fill="var(--muted)"/><text x="90" y="70" text-anchor="middle">피드 탐색</text><text x="90" y="90" text-anchor="middle" font-size="10" font-weight="600" fill="var(--sub)">예산별 필터</text></g>
+          <g><rect x="240" y="40" width="190" height="64" rx="14" fill="#fff" stroke="var(--hair)"/><text x="335" y="70" text-anchor="middle">코스 상세 보기</text><text x="335" y="90" text-anchor="middle" font-size="10" font-weight="600" fill="var(--sub)">총비용·만족도</text></g>
+          <g><rect x="490" y="40" width="190" height="64" rx="14" fill="var(--mint-tint)"/><text x="585" y="76" text-anchor="middle" fill="#0E8C66">따라가기 시작</text></g>
+          <g><rect x="740" y="40" width="190" height="64" rx="14" fill="#fff" stroke="var(--hair)"/><text x="835" y="70" text-anchor="middle">완주·후기 작성</text><text x="835" y="90" text-anchor="middle" font-size="10" font-weight="600" fill="var(--sub)">사진·평점</text></g>
+          <g><rect x="990" y="40" width="162" height="64" rx="14" fill="var(--ink)"/><text x="1071" y="70" text-anchor="middle" fill="#fff">AI 학습</text><text x="1071" y="90" text-anchor="middle" font-size="10" font-weight="600" fill="rgba(255,255,255,.6)">개인화 ↑</text></g>
+        </g>
+        <g stroke="var(--mint)" stroke-width="2.2" fill="none">
+          <path d="M180 72 H 236"/><path d="M430 72 H 486"/><path d="M680 72 H 736"/><path d="M930 72 H 986"/>
+        </g>
+        <g fill="var(--mint)">
+          <path d="M232 66 l8 6 l-8 6"/><path d="M482 66 l8 6 l-8 6"/><path d="M732 66 l8 6 l-8 6"/><path d="M982 66 l8 6 l-8 6"/>
+        </g>
+        <!-- feedback loop arrow -->
+        <path d="M1071 104 C 1071 140, 90 140, 90 110" stroke="#C7CBD3" stroke-width="1.6" stroke-dasharray="3 6" fill="none"/>
+        <text x="580" y="138" text-anchor="middle" font-size="11" font-weight="600" fill="var(--sub)">학습 결과가 다음 추천·피드에 반영</text>
+      </svg>
+    </div>
+
+    <div class="footer">
+      <span class="brand"><b>머니코스</b> · Money Course</span>
+      <span class="pageno">16</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SLIDE 17 — SERVICE ARCHITECTURE ============ -->
+<section class="slide">
+  <div class="pad">
+    <div class="eyebrow gray">SYSTEM ARCHITECTURE</div>
+    <div class="title-block">
+      <div class="h2">서비스 구조도</div>
+    </div>
+
+    <svg width="1152" height="400" viewBox="0 0 1152 400" style="margin-top:28px;">
+      <!-- Client -->
+      <g>
+        <rect x="0" y="120" width="220" height="150" rx="18" fill="var(--blue)"/>
+        <text x="24" y="156" font-size="12" font-weight="800" letter-spacing="1.2" fill="rgba(255,255,255,.8)">CLIENT</text>
+        <text x="24" y="186" font-size="20" font-weight="800" fill="#fff">PWA 앱</text>
+        <text x="24" y="214" font-size="12.5" font-weight="600" fill="rgba(255,255,255,.85)">예산 입력 · 코스 뷰</text>
+        <text x="24" y="236" font-size="12.5" font-weight="600" fill="rgba(255,255,255,.85)">피드 · 저장 · 공유</text>
+      </g>
+
+      <!-- AI engine (center) -->
+      <g>
+        <rect x="360" y="90" width="280" height="210" rx="18" fill="var(--ink)"/>
+        <text x="384" y="126" font-size="12" font-weight="800" letter-spacing="1.2" fill="#9DB4FF">AI RECOMMENDATION</text>
+        <text x="384" y="156" font-size="20" font-weight="800" fill="#fff">추천 엔진</text>
+        <rect x="384" y="176" width="232" height="40" rx="10" fill="rgba(255,255,255,.1)"/><text x="400" y="201" font-size="13" font-weight="700" fill="#fff">랭킹 · 만족도 최적화</text>
+        <rect x="384" y="222" width="232" height="40" rx="10" fill="rgba(47,107,255,.4)"/><text x="400" y="247" font-size="13" font-weight="700" fill="#fff">개인화 · 취향 학습</text>
+      </g>
+
+      <!-- Data sources (top right) -->
+      <g>
+        <rect x="800" y="20" width="352" height="160" rx="18" fill="var(--muted)"/>
+        <text x="824" y="54" font-size="12" font-weight="800" letter-spacing="1.2" fill="var(--sub)">DATA SOURCES · 외부 API</text>
+        <g font-size="12.5" font-weight="700" fill="#374151">
+          <rect x="824" y="70" width="146" height="38" rx="10" fill="#fff" stroke="var(--hair)"/><text x="840" y="94">장소 · 가격</text>
+          <rect x="982" y="70" width="146" height="38" rx="10" fill="#fff" stroke="var(--hair)"/><text x="998" y="94">실시간 할인</text>
+          <rect x="824" y="118" width="98" height="38" rx="10" fill="#fff" stroke="var(--hair)"/><text x="840" y="142">팝업</text>
+          <rect x="934" y="118" width="90" height="38" rx="10" fill="#fff" stroke="var(--hair)"/><text x="950" y="142">날씨</text>
+          <rect x="1036" y="118" width="92" height="38" rx="10" fill="#fff" stroke="var(--hair)"/><text x="1052" y="142">혼잡도</text>
+        </g>
+      </g>
+
+      <!-- Social graph (bottom right) -->
+      <g>
+        <rect x="800" y="210" width="352" height="150" rx="18" fill="var(--mint-tint)"/>
+        <text x="824" y="244" font-size="12" font-weight="800" letter-spacing="1.2" fill="#0E8C66">SOCIAL GRAPH</text>
+        <text x="824" y="274" font-size="19" font-weight="800" fill="var(--ink)">소셜 데이터</text>
+        <g font-size="12.5" font-weight="700" fill="#0E8C66">
+          <rect x="824" y="290" width="74" height="36" rx="10" fill="#fff"/><text x="844" y="313">코스</text>
+          <rect x="908" y="290" width="74" height="36" rx="10" fill="#fff"/><text x="928" y="313">저장</text>
+          <rect x="992" y="290" width="82" height="36" rx="10" fill="#fff"/><text x="1012" y="313">좋아요</text>
+          <rect x="1084" y="290" width="44" height="36" rx="10" fill="#fff"/><text x="1095" y="313">후기</text>
+        </g>
+      </g>
+
+      <!-- connectors -->
+      <g stroke="#B9BFC9" stroke-width="2" fill="none">
+        <!-- client <-> AI -->
+        <path d="M220 195 H 358"/>
+      </g>
+      <path d="M232 189 l-8 6 l8 6" fill="#B9BFC9"/>
+      <path d="M348 189 l8 6 l-8 6" fill="#B9BFC9"/>
+      <text x="289" y="184" text-anchor="middle" class="arrow-label" font-weight="600">요청 / 코스</text>
+
+      <!-- AI <-> data -->
+      <g stroke="#B9BFC9" stroke-width="2" fill="none"><path d="M640 150 C 720 150, 740 110, 798 100"/></g>
+      <path d="M790 92 l10 6 l-8 9" fill="#B9BFC9"/>
+      <!-- AI <-> social -->
+      <g stroke="var(--mint)" stroke-width="2" fill="none"><path d="M640 250 C 720 250, 740 280, 798 285"/></g>
+      <path d="M790 277 l10 8 l-9 7" fill="var(--mint)"/>
+      <path d="M648 244 l-9 7 l10 7" fill="var(--mint)"/>
+    </svg>
+
+    <div class="footer">
+      <span class="brand"><b>머니코스</b> · Money Course</span>
+      <span class="pageno">17</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SLIDE 18 — ERD ============ -->
+<section class="slide">
+  <div class="pad">
+    <div class="eyebrow gray">DATA MODEL · ERD</div>
+    <div class="title-block">
+      <div class="h2">데이터 모델 (단순화 ERD)</div>
+    </div>
+
+    <svg width="1152" height="408" viewBox="0 0 1152 408" style="margin-top:22px; font-family:Pretendard;">
+      <style>
+        .ent-h{font-size:13px; font-weight:800; fill:#fff;}
+        .ent-r{font-size:11px; font-weight:600; fill:#374151;}
+        .pk{fill:var(--blue); font-weight:800;}
+        .fk{fill:var(--mint); font-weight:800;}
+        .rel{stroke:#C7CBD3; stroke-width:1.6; fill:none;}
+      </style>
+
+      <!-- relationship lines (draw first) -->
+      <g class="rel">
+        <path d="M180 120 H 470"/>            <!-- User - Course -->
+        <path d="M610 150 V 196"/>            <!-- Course - CourseItem -->
+        <path d="M610 256 H 470 V 196"/>      <!-- skip -->
+        <path d="M180 196 H 220 V 256 H 470"/><!-- User - Save -->
+        <path d="M180 300 H 470"/>            <!-- User - Like (via) -->
+        <path d="M750 90 H 900"/>             <!-- CourseItem? -->
+      </g>
+
+      <!-- USER -->
+      <g>
+        <rect x="20" y="60" width="160" height="120" rx="12" fill="#fff" stroke="var(--hair)"/>
+        <rect x="20" y="60" width="160" height="30" rx="12" fill="var(--ink)"/><rect x="20" y="78" width="160" height="12" fill="var(--ink)"/>
+        <text x="34" y="80" class="ent-h">User</text>
+        <text x="34" y="110" class="ent-r"><tspan class="pk">PK</tspan> user_id</text>
+        <text x="34" y="130" class="ent-r">nickname</text>
+        <text x="34" y="150" class="ent-r">region</text>
+        <text x="34" y="170" class="ent-r">created_at</text>
+      </g>
+
+      <!-- COURSE -->
+      <g>
+        <rect x="470" y="40" width="180" height="160" rx="12" fill="#fff" stroke="var(--hair)"/>
+        <rect x="470" y="40" width="180" height="30" rx="12" fill="var(--blue)"/><rect x="470" y="58" width="180" height="12" fill="var(--blue)"/>
+        <text x="484" y="60" class="ent-h">Course</text>
+        <text x="484" y="90" class="ent-r"><tspan class="pk">PK</tspan> course_id</text>
+        <text x="484" y="110" class="ent-r"><tspan class="fk">FK</tspan> user_id</text>
+        <text x="484" y="130" class="ent-r">title · budget</text>
+        <text x="484" y="150" class="ent-r">total_cost</text>
+        <text x="484" y="170" class="ent-r">satisfaction</text>
+        <text x="484" y="190" class="ent-r">is_public</text>
+      </g>
+
+      <!-- COURSEITEM -->
+      <g>
+        <rect x="730" y="40" width="180" height="140" rx="12" fill="#fff" stroke="var(--hair)"/>
+        <rect x="730" y="40" width="180" height="30" rx="12" fill="var(--blue)"/><rect x="730" y="58" width="180" height="12" fill="var(--blue)"/>
+        <text x="744" y="60" class="ent-h">CourseItem</text>
+        <text x="744" y="90" class="ent-r"><tspan class="pk">PK</tspan> item_id</text>
+        <text x="744" y="110" class="ent-r"><tspan class="fk">FK</tspan> course_id</text>
+        <text x="744" y="130" class="ent-r"><tspan class="fk">FK</tspan> place_id</text>
+        <text x="744" y="150" class="ent-r">order · time</text>
+        <text x="744" y="170" class="ent-r">cost</text>
+      </g>
+
+      <!-- PLACE -->
+      <g>
+        <rect x="970" y="40" width="170" height="140" rx="12" fill="#fff" stroke="var(--hair)"/>
+        <rect x="970" y="40" width="170" height="30" rx="12" fill="var(--ink)"/><rect x="970" y="58" width="170" height="12" fill="var(--ink)"/>
+        <text x="984" y="60" class="ent-h">Place</text>
+        <text x="984" y="90" class="ent-r"><tspan class="pk">PK</tspan> place_id</text>
+        <text x="984" y="110" class="ent-r">name · category</text>
+        <text x="984" y="130" class="ent-r">price_level</text>
+        <text x="984" y="150" class="ent-r">geo · congestion</text>
+        <text x="984" y="170" class="ent-r">discount</text>
+      </g>
+
+      <!-- SAVE -->
+      <g>
+        <rect x="470" y="236" width="160" height="100" rx="12" fill="#fff" stroke="var(--hair)"/>
+        <rect x="470" y="236" width="160" height="30" rx="12" fill="var(--mint)"/><rect x="470" y="254" width="160" height="12" fill="var(--mint)"/>
+        <text x="484" y="256" class="ent-h">Save</text>
+        <text x="484" y="286" class="ent-r"><tspan class="pk">PK</tspan> save_id</text>
+        <text x="484" y="306" class="ent-r"><tspan class="fk">FK</tspan> user_id</text>
+        <text x="484" y="326" class="ent-r"><tspan class="fk">FK</tspan> course_id</text>
+      </g>
+
+      <!-- LIKE -->
+      <g>
+        <rect x="660" y="236" width="160" height="100" rx="12" fill="#fff" stroke="var(--hair)"/>
+        <rect x="660" y="236" width="160" height="30" rx="12" fill="var(--mint)"/><rect x="660" y="254" width="160" height="12" fill="var(--mint)"/>
+        <text x="674" y="256" class="ent-h">Like</text>
+        <text x="674" y="286" class="ent-r"><tspan class="pk">PK</tspan> like_id</text>
+        <text x="674" y="306" class="ent-r"><tspan class="fk">FK</tspan> user_id</text>
+        <text x="674" y="326" class="ent-r"><tspan class="fk">FK</tspan> course_id</text>
+      </g>
+
+      <!-- REVIEW -->
+      <g>
+        <rect x="850" y="236" width="160" height="120" rx="12" fill="#fff" stroke="var(--hair)"/>
+        <rect x="850" y="236" width="160" height="30" rx="12" fill="var(--mint)"/><rect x="850" y="254" width="160" height="12" fill="var(--mint)"/>
+        <text x="864" y="256" class="ent-h">Review</text>
+        <text x="864" y="286" class="ent-r"><tspan class="pk">PK</tspan> review_id</text>
+        <text x="864" y="306" class="ent-r"><tspan class="fk">FK</tspan> user_id</text>
+        <text x="864" y="326" class="ent-r"><tspan class="fk">FK</tspan> course_id</text>
+        <text x="864" y="346" class="ent-r">rating · text</text>
+      </g>
+
+      <!-- PREFTAG -->
+      <g>
+        <rect x="20" y="236" width="190" height="100" rx="12" fill="#fff" stroke="var(--hair)"/>
+        <rect x="20" y="236" width="190" height="30" rx="12" fill="var(--ink)"/><rect x="20" y="254" width="190" height="12" fill="var(--ink)"/>
+        <text x="34" y="256" class="ent-h">PreferenceTag</text>
+        <text x="34" y="286" class="ent-r"><tspan class="pk">PK</tspan> tag_id</text>
+        <text x="34" y="306" class="ent-r"><tspan class="fk">FK</tspan> user_id</text>
+        <text x="34" y="326" class="ent-r">weight</text>
+      </g>
+
+      <!-- FOLLOW -->
+      <g>
+        <rect x="240" y="236" width="190" height="100" rx="12" fill="#fff" stroke="var(--hair)"/>
+        <rect x="240" y="236" width="190" height="30" rx="12" fill="var(--ink)"/><rect x="240" y="254" width="190" height="12" fill="var(--ink)"/>
+        <text x="254" y="256" class="ent-h">Follow</text>
+        <text x="254" y="286" class="ent-r"><tspan class="pk">PK</tspan> follow_id</text>
+        <text x="254" y="306" class="ent-r"><tspan class="fk">FK</tspan> follower_id</text>
+        <text x="254" y="326" class="ent-r"><tspan class="fk">FK</tspan> followee_id</text>
+      </g>
+
+      <!-- relationship overrides (cleaner explicit lines) -->
+      <g class="rel">
+        <path d="M650 95 H 730"/>             <!-- Course - CourseItem -->
+        <path d="M910 110 H 970"/>            <!-- CourseItem - Place -->
+        <path d="M115 180 V 236"/>            <!-- User - PrefTag -->
+        <path d="M115 180 V 210 H 335 V 236"/><!-- User - Follow -->
+        <path d="M115 120 H 470"/>            <!-- User - Course (via FK) -->
+        <path d="M180 130 H 300 V 236"/>      <!-- routing helper hidden -->
+      </g>
+      <!-- cardinality marks -->
+      <g font-size="11" font-weight="700" fill="var(--sub)">
+        <text x="300" y="112">1 : N</text>
+        <text x="675" y="86">1 : N</text>
+        <text x="922" y="100">N : 1</text>
+      </g>
+    </svg>
+
+    <div style="margin-top:0; display:flex; gap:18px; font-size:12px; font-weight:600; color:var(--sub);">
+      <span style="display:flex; align-items:center; gap:6px;"><span style="width:11px;height:11px;border-radius:3px;background:var(--blue);"></span>PK 식별자</span>
+      <span style="display:flex; align-items:center; gap:6px;"><span style="width:11px;height:11px;border-radius:3px;background:var(--mint);"></span>FK 참조</span>
+      <span>· 핵심 관계: User 1:N Course · Course 1:N CourseItem · CourseItem N:1 Place · Save/Like/Review/Follow 연결</span>
+    </div>
+
+    <div class="footer">
+      <span class="brand"><b>머니코스</b> · Money Course</span>
+      <span class="pageno">18</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SLIDE 19 — KPI ============ -->
+<section class="slide">
+  <div class="pad">
+    <div class="eyebrow">METRICS</div>
+    <div class="title-block" style="margin-top:14px;">
+      <div class="h2">핵심 지표 — North Star &amp; Funnel</div>
+      <p class="lead" style="margin-top:8px; font-size:15px;">하나의 North Star로 정렬하고, Activation→Retention 퍼널로 병목을 본다.</p>
+    </div>
+
+    <div style="display:grid; grid-template-columns:1fr 1.25fr; gap:32px; margin-top:32px;">
+      <!-- north star + cards -->
+      <div>
+        <div class="card" style="padding:26px; background:linear-gradient(135deg,#15172A,#0A0B0D); border:none; color:#fff;">
+          <div class="eyebrow" style="color:#9DB4FF;">NORTH STAR METRIC</div>
+          <div style="font-size:23px; font-weight:800; margin-top:14px; line-height:1.3;">주간 완성된<br/>코스 경험 수</div>
+          <div style="font-size:12px; color:rgba(255,255,255,.6); margin-top:10px; font-weight:600;">Weekly Completed Course Experiences</div>
+        </div>
+        <div class="grid" style="grid-template-columns:1fr 1fr; margin-top:16px; gap:14px;">
+          <div class="card" style="padding:18px;"><div style="font-size:11px; color:var(--sub); font-weight:700;">W1 재방문</div><div style="font-size:26px; font-weight:800;" class="num blue-text">42%</div></div>
+          <div class="card" style="padding:18px;"><div style="font-size:11px; color:var(--sub); font-weight:700;">W4 재방문</div><div style="font-size:26px; font-weight:800;" class="num blue-text">21%</div></div>
+          <div class="card" style="padding:18px;"><div style="font-size:11px; color:var(--sub); font-weight:700;">따라가기 완주율</div><div style="font-size:26px; font-weight:800;" class="num mint-text">63%</div></div>
+          <div class="card" style="padding:18px;"><div style="font-size:11px; color:var(--sub); font-weight:700;">AI 만족도 평가</div><div style="font-size:26px; font-weight:800;" class="num mint-text">4.4</div></div>
+        </div>
+      </div>
+
+      <!-- funnel -->
+      <div>
+        <div class="eyebrow gray" style="font-size:11px;">ACTIVATION → RETENTION FUNNEL</div>
+        <svg width="640" height="332" viewBox="0 0 640 332" style="margin-top:14px;">
+          <g font-family="Pretendard">
+            <!-- bars -->
+            <g>
+              <rect x="0" y="6" width="640" height="52" rx="11" fill="var(--blue)"/>
+              <text x="20" y="38" font-size="14" font-weight="700" fill="#fff">방문 → 첫 코스 생성 (Activation)</text>
+              <text x="620" y="38" text-anchor="end" font-size="16" font-weight="800" fill="#fff" class="num">58%</text>
+            </g>
+            <g>
+              <rect x="48" y="72" width="544" height="52" rx="11" fill="#5B8AFF"/>
+              <text x="68" y="104" font-size="14" font-weight="700" fill="#fff">코스 저장률</text>
+              <text x="572" y="104" text-anchor="end" font-size="16" font-weight="800" fill="#fff" class="num">46%</text>
+            </g>
+            <g>
+              <rect x="96" y="138" width="448" height="52" rx="11" fill="#8DAEFF"/>
+              <text x="116" y="170" font-size="14" font-weight="700" fill="#fff">공유 / 따라가기</text>
+              <text x="524" y="170" text-anchor="end" font-size="16" font-weight="800" fill="#fff" class="num">29%</text>
+            </g>
+            <g>
+              <rect x="144" y="204" width="352" height="52" rx="11" fill="var(--mint)"/>
+              <text x="164" y="236" font-size="14" font-weight="700" fill="#fff">따라가기 완주</text>
+              <text x="476" y="236" text-anchor="end" font-size="16" font-weight="800" fill="#fff" class="num">63%</text>
+            </g>
+            <g>
+              <rect x="192" y="270" width="256" height="52" rx="11" fill="#0E8C66"/>
+              <text x="212" y="302" font-size="14" font-weight="700" fill="#fff">W4 재방문 (Retention)</text>
+              <text x="428" y="302" text-anchor="end" font-size="16" font-weight="800" fill="#fff" class="num">21%</text>
+            </g>
+          </g>
+        </svg>
+      </div>
+    </div>
+
+    <div style="margin-top:14px; display:flex; gap:10px; flex-wrap:wrap; font-size:12px; font-weight:700;">
+      <span class="chip blue">생활비 코치 → 리텐션(W1·W4) 핵심 훅</span>
+      <span class="chip">개인화 학습 → AI 만족도·재방문</span>
+      <span class="chip">AI 브리핑 → DAU·진입 빈도</span>
+      <span class="chip mint">게이미피케이션 → UGC·공유/바이럴</span>
+      <span class="chip mint">실데이터 랭킹 → 전환율·신뢰</span>
+    </div>
+    <div style="margin-top:10px; font-size:12px; color:#9AA1AC; font-weight:600;">* 지표값은 목표/가설 기준의 예시이며, MVP 출시 후 실측으로 보정합니다.</div>
+
+    <div class="footer">
+      <span class="brand"><b>머니코스</b> · Money Course</span>
+      <span class="pageno">19</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SLIDE 20 — BUSINESS MODEL + MVP ============ -->
+<section class="slide">
+  <div class="pad">
+    <div class="eyebrow">BUSINESS MODEL</div>
+    <div class="title-block" style="margin-top:12px;">
+      <div class="h2">수익 모델 &amp; MVP 우선순위</div>
+      <p class="lead" style="margin-top:8px; font-size:15px;">거래 수수료를 기반으로, 광고·구독·B2B로 확장 — MVP는 핵심 가치에 집중한다.</p>
+    </div>
+
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:34px; margin-top:30px;">
+      <!-- revenue -->
+      <div>
+        <div class="eyebrow gray" style="font-size:11px;">REVENUE STREAMS</div>
+        <div style="display:flex; flex-direction:column; gap:12px; margin-top:14px;">
+          <div class="rev"><div class="revn">01</div><div><b>제휴 커머스 수수료</b><span>장소·팝업 예약, 쿠폰 발급에 대한 거래 수수료</span></div></div>
+          <div class="rev"><div class="revn">02</div><div><b>스폰서 코스 (광고)</b><span>로컬·브랜드가 후원하는 팝업·코스 노출</span></div></div>
+          <div class="rev"><div class="revn">03</div><div><b>프리미엄 구독</b><span>무제한 AI 설계, 그룹 코스 동기화</span></div></div>
+          <div class="rev"><div class="revn">04</div><div><b>B2B 상권 인사이트</b><span>예산·동선·수요 데이터 분석 리포트</span></div></div>
+        </div>
+      </div>
+
+      <!-- 2x2 MoSCoW / Impact-Effort -->
+      <div>
+        <div class="eyebrow gray" style="font-size:11px;">MVP PRIORITY · IMPACT × EFFORT</div>
+        <svg width="560" height="334" viewBox="0 0 560 334" style="margin-top:14px;">
+          <!-- axes -->
+          <line x1="40" y1="10" x2="40" y2="300" stroke="var(--hair)" stroke-width="1.5"/>
+          <line x1="40" y1="300" x2="555" y2="300" stroke="var(--hair)" stroke-width="1.5"/>
+          <line x1="297" y1="10" x2="297" y2="300" stroke="var(--hair)" stroke-width="1" stroke-dasharray="4 5"/>
+          <line x1="40" y1="155" x2="555" y2="155" stroke="var(--hair)" stroke-width="1" stroke-dasharray="4 5"/>
+          <text x="24" y="20" font-size="11" font-weight="700" fill="var(--sub)" transform="rotate(-90 24 20)" text-anchor="end">High Impact</text>
+          <text x="50" y="318" font-size="11" font-weight="700" fill="var(--sub)">Low Effort</text>
+          <text x="555" y="318" font-size="11" font-weight="700" fill="var(--sub)" text-anchor="end">High Effort</text>
+
+          <!-- MUST (high impact, low effort) -->
+          <g>
+            <rect x="52" y="22" width="232" height="120" rx="12" fill="var(--blue-tint)"/>
+            <text x="68" y="44" font-size="12" font-weight="800" fill="var(--deep)">MUST</text>
+            <text x="68" y="72" font-size="13" font-weight="700">· 예산 입력 → AI 코스</text>
+            <text x="68" y="96" font-size="13" font-weight="700">· 코스 저장 / 공유</text>
+            <text x="68" y="120" font-size="11" font-weight="600" fill="#5878D8">핵심 가치 · 즉시 구현</text>
+          </g>
+          <!-- SHOULD (high impact, high effort) -->
+          <g>
+            <rect x="310" y="22" width="232" height="120" rx="12" fill="var(--mint-tint)"/>
+            <text x="326" y="44" font-size="12" font-weight="800" fill="#0E8C66">SHOULD</text>
+            <text x="326" y="72" font-size="13" font-weight="700">· 피드 / 따라가기</text>
+            <text x="326" y="96" font-size="13" font-weight="700">· 개인화 학습</text>
+            <text x="326" y="120" font-size="11" font-weight="600" fill="#0E8C66">리텐션 동력</text>
+          </g>
+          <!-- COULD (low impact, low effort) -->
+          <g>
+            <rect x="52" y="168" width="232" height="120" rx="12" fill="var(--muted)"/>
+            <text x="68" y="190" font-size="12" font-weight="800" fill="var(--sub)">COULD</text>
+            <text x="68" y="218" font-size="13" font-weight="700" fill="#374151">· 그룹 코스 동기화</text>
+            <text x="68" y="242" font-size="13" font-weight="700" fill="#374151">· 예약 연동</text>
+            <text x="68" y="266" font-size="11" font-weight="600" fill="var(--sub)">확장 단계</text>
+          </g>
+          <!-- WON'T -->
+          <g>
+            <rect x="310" y="168" width="232" height="120" rx="12" fill="#fff" stroke="var(--hair)"/>
+            <text x="326" y="190" font-size="12" font-weight="800" fill="#9AA1AC">WON'T (now)</text>
+            <text x="326" y="218" font-size="13" font-weight="700" fill="#9AA1AC">· 자체 결제 / 정산</text>
+            <text x="326" y="242" font-size="13" font-weight="700" fill="#9AA1AC">· 인앱 송금</text>
+            <text x="326" y="266" font-size="11" font-weight="600" fill="#C7CBD3">현 단계 제외</text>
+          </g>
+        </svg>
+      </div>
+    </div>
+
+    <div style="margin-top:22px; background:var(--muted); border-radius:14px; padding:14px 20px; font-size:12.5px; font-weight:700; color:#374151; line-height:1.6;">
+      <span class="blue-text">기능 → 수익 연결</span> &nbsp;·&nbsp; 실데이터 랭킹·예약 연동 → <b>제휴 커머스 수수료</b> &nbsp;·&nbsp; 게이미피케이션·UGC → <b>스폰서 코스 광고</b> &nbsp;·&nbsp; 생활비 코치·그룹 동기화 → <b>프리미엄 구독</b> &nbsp;·&nbsp; 소비·동선 데이터 → <b>B2B 인사이트</b>
+    </div>
+
+    <div class="footer">
+      <span class="brand"><b>머니코스</b> · Money Course</span>
+      <span class="pageno">20</span>
+    </div>
+  </div>
+  <style>
+    .rev{display:flex; gap:16px; align-items:flex-start; background:var(--canvas); border:1px solid var(--hair); border-radius:14px; padding:16px 18px; box-shadow:var(--shadow-sm);}
+    .revn{flex:none; width:34px; height:34px; border-radius:10px; background:var(--ink); color:#fff; font-size:12px; font-weight:800; display:flex; align-items:center; justify-content:center;}
+    .rev b{font-size:16px; font-weight:800; display:block;}
+    .rev span{font-size:13px; color:var(--sub); font-weight:500; display:block; margin-top:3px;}
+  </style>
+</section>
+
+<!-- ============ SLIDE 21 — ROADMAP + CLOSING ============ -->
+<section class="slide cover">
+  <div class="pad">
+    <div class="eyebrow">ROADMAP · CLOSING</div>
+    <div class="title-block">
+      <div class="h2">서울에서 시작해, 전국과 데이터로 확장한다.</div>
+    </div>
+
+    <!-- roadmap -->
+    <svg width="1152" height="230" viewBox="0 0 1152 230" style="margin-top:34px;">
+      <line x1="40" y1="40" x2="1112" y2="40" stroke="var(--hair)" stroke-width="2"/>
+      <circle cx="180" cy="40" r="7" fill="var(--blue)"/>
+      <circle cx="576" cy="40" r="7" fill="var(--blue)"/>
+      <circle cx="972" cy="40" r="7" fill="var(--mint)"/>
+
+      <g>
+        <rect x="40" y="72" width="320" height="140" rx="16" fill="#fff" stroke="var(--hair)"/>
+        <text x="64" y="104" font-size="12" font-weight="800" letter-spacing="1px" fill="var(--blue)">PHASE 1 · MVP</text>
+        <text x="64" y="134" font-size="18" font-weight="800">서울 핵심 상권</text>
+        <text x="64" y="162" font-size="13" font-weight="600" fill="var(--sub)">성수·홍대·강남 중심</text>
+        <text x="64" y="184" font-size="13" font-weight="600" fill="var(--sub)">예산→AI 코스 · 저장/공유</text>
+      </g>
+      <g>
+        <rect x="436" y="72" width="320" height="140" rx="16" fill="#fff" stroke="var(--hair)"/>
+        <text x="460" y="104" font-size="12" font-weight="800" letter-spacing="1px" fill="var(--blue)">PHASE 2 · GROWTH</text>
+        <text x="460" y="134" font-size="18" font-weight="800">개인화 · 제휴 · 예약</text>
+        <text x="460" y="162" font-size="13" font-weight="600" fill="var(--sub)">취향 학습 고도화</text>
+        <text x="460" y="184" font-size="13" font-weight="600" fill="var(--sub)">제휴 커머스 · 예약 연동</text>
+      </g>
+      <g>
+        <rect x="832" y="72" width="320" height="140" rx="16" fill="var(--mint-tint)"/>
+        <text x="856" y="104" font-size="12" font-weight="800" letter-spacing="1px" fill="#0E8C66">PHASE 3 · SCALE</text>
+        <text x="856" y="134" font-size="18" font-weight="800">전국 · 여행 · B2B</text>
+        <text x="856" y="162" font-size="13" font-weight="600" fill="#0E8C66">전국 확장 · 여행 코스</text>
+        <text x="856" y="184" font-size="13" font-weight="600" fill="#0E8C66">상권 데이터 인사이트</text>
+      </g>
+    </svg>
+
+    <!-- closing -->
+    <div style="position:absolute; left:64px; right:64px; bottom:96px;">
+      <div style="height:1px; background:var(--hair);"></div>
+      <div style="display:flex; justify-content:space-between; align-items:flex-end; margin-top:26px;">
+        <div>
+          <div style="font-size:28px; font-weight:800; letter-spacing:-.02em; line-height:1.3;">예산이 시작점이 되는 순간,<br/>하루의 만족도가 달라진다.</div>
+        </div>
+        <div style="display:flex; align-items:center; gap:12px;">
+          <svg width="34" height="34" viewBox="0 0 40 40" fill="none">
+            <rect x="1" y="1" width="38" height="38" rx="11" fill="url(#cg2)"/>
+            <path d="M12 27V14.5L20 22l8-7.5V27" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="20" cy="20" r="2.6" fill="#fff"/>
+            <defs><linearGradient id="cg2" x1="0" y1="0" x2="40" y2="40"><stop stop-color="#2F6BFF"/><stop offset="1" stop-color="#1E4FD9"/></linearGradient></defs>
+          </svg>
+          <div>
+            <div style="font-size:17px; font-weight:800;">머니코스</div>
+            <div style="font-size:12px; font-weight:600; color:var(--sub);">Money Course</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer">
+      <span class="brand"><b>머니코스</b> · Money Course</span>
+      <span class="pageno">21</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SLIDE 22 — APPENDIX · ASSUMPTIONS & VALIDATION ============ -->
+<section class="slide">
+  <div class="pad">
+    <div class="eyebrow gray">APPENDIX</div>
+    <div class="title-block" style="margin-top:12px;">
+      <div class="h2">핵심 가정 &amp; 검증 계획</div>
+      <p class="lead" style="margin-top:8px; font-size:15px;">확신이 아니라 가설 — MVP에서 무엇을, 어떻게, 어떤 지표로 검증할지 정리한다.</p>
+    </div>
+
+    <div class="atable" style="margin-top:26px;">
+      <div class="arow ahead">
+        <div>핵심 가정 (Assumption)</div>
+        <div>근거 · 현재 신호</div>
+        <div>검증 방법 (MVP)</div>
+        <div>성공 지표</div>
+      </div>
+      <div class="arow">
+        <div class="acell"><span class="an">1</span><b>예산이 사용자의 시작점이다</b></div>
+        <div class="acell sub">인터뷰에서 '얼마 쓸지'를 장소보다 먼저 결정</div>
+        <div class="acell sub">예산 입력 진입·완료 퍼널 측정</div>
+        <div class="acell"><span class="ametric">첫 코스 생성률 ≥ 55%</span></div>
+      </div>
+      <div class="arow alt">
+        <div class="acell"><span class="an">2</span><b>또래 실데이터가 신뢰를 높인다</b></div>
+        <div class="acell sub">광고보다 또래 실후기를 신뢰하는 경향</div>
+        <div class="acell sub">랭킹 노출군 vs 일반 추천 A/B 테스트</div>
+        <div class="acell"><span class="ametric">따라가기 전환율 ↑</span></div>
+      </div>
+      <div class="arow">
+        <div class="acell"><span class="an">3</span><b>생활비 코치가 리텐션을 만든다</b></div>
+        <div class="acell sub">예산관리 앱의 높은 반복 사용 패턴</div>
+        <div class="acell sub">코치 알림 수신군 리텐션 코호트 비교</div>
+        <div class="acell"><span class="ametric">W4 재방문률 ≥ 21%</span></div>
+      </div>
+      <div class="arow alt">
+        <div class="acell"><span class="an">4</span><b>개인화가 정확도를 높인다</b></div>
+        <div class="acell sub">행동 시그널 누적 시 추천 적중 상승</div>
+        <div class="acell sub">학습 전·후 추천 만족도 평가 비교</div>
+        <div class="acell"><span class="ametric">AI 만족도 ≥ 4.3 / 5</span></div>
+      </div>
+      <div class="arow">
+        <div class="acell"><span class="an">5</span><b>게이미피케이션이 UGC를 늘린다</b></div>
+        <div class="acell sub">미션·배지의 콘텐츠 생산 유인</div>
+        <div class="acell sub">미션 노출군 코스 생성·공유량 측정</div>
+        <div class="acell"><span class="ametric">사용자당 공유 코스 수 ↑</span></div>
+      </div>
+    </div>
+
+    <div style="margin-top:16px; font-size:11px; color:#9AA1AC; font-weight:600;">* 모든 성공 지표는 목표 가설값이며, MVP 출시 후 실측으로 보정합니다.</div>
+
+    <div class="footer">
+      <span class="brand"><b>머니코스</b> · Money Course</span>
+      <span class="pageno">22</span>
+    </div>
+  </div>
+  <style>
+    .atable{border:1px solid var(--hair); border-radius:16px; overflow:hidden; box-shadow:var(--shadow-sm);}
+    .arow{display:grid; grid-template-columns:1.05fr 1.25fr 1.3fr 0.95fr; align-items:center; border-bottom:1px solid var(--hair);}
+    .arow:last-child{border-bottom:none;}
+    .arow.alt{background:var(--muted);}
+    .arow.ahead{background:var(--ink);}
+    .arow.ahead div{color:#fff; font-size:12px; font-weight:800; letter-spacing:.04em; padding:14px 20px;}
+    .acell{padding:16px 20px; font-size:13.5px; font-weight:700; color:var(--ink); display:flex; align-items:center; gap:10px; line-height:1.4;}
+    .acell.sub{font-size:13px; font-weight:600; color:#374151;}
+    .an{flex:none; width:24px; height:24px; border-radius:7px; background:var(--blue); color:#fff; font-size:12px; font-weight:800; display:flex; align-items:center; justify-content:center;}
+    .ametric{background:var(--mint-tint); color:#0E8C66; font-size:12.5px; font-weight:800; padding:7px 12px; border-radius:9px; line-height:1.3;}
+  </style>
+</section>
+
+</div>
+</body>
+</html>

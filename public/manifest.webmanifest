@@ -1,0 +1,47 @@
+{
+  "name": "머니코스 — Money Course",
+  "short_name": "머니코스",
+  "description": "AI가 예산 안에서 가장 만족스러운 하루를 설계하는 소셜 플랫폼",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#FFFFFF",
+  "theme_color": "#2F6BFF",
+  "categories": ["lifestyle", "social", "travel"],
+  "lang": "ko-KR",
+  "dir": "ltr",
+  "icons": [
+    {
+      "src": "/icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "오늘 코스 설계",
+      "short_name": "코스 설계",
+      "url": "/plan",
+      "description": "예산만 입력하면 AI가 하루를 설계합니다"
+    },
+    {
+      "name": "코스 탐색",
+      "short_name": "탐색",
+      "url": "/explore"
+    }
+  ]
+}
